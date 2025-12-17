@@ -53,9 +53,9 @@ export default function Hero() {
             </motion.div>
 
             <div className={`container ${styles.content}`}>
-                <p className={styles.eyebrow}>Improve your business in digital.</p>
+                <p className={styles.eyebrow}>Powering your business with Ybor.</p>
                 <h1 className={styles.title}>
-                    <span className="text-highlight">Digital marketing</span> <br />
+                    <span className="text-highlight">Ybor Digital Marketing</span> <br />
                     agency
                 </h1>
                 <p className={styles.subtitle}>
@@ -87,7 +87,7 @@ export default function Hero() {
                             />
                         </div>
                         <div className={styles.centerBadge}>
-                            Market<br />Agency
+                            Ybor<br />Agency
                         </div>
                     </div>
                     <div className={styles.gridItem}>
