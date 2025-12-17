@@ -1,0 +1,181 @@
+.solutions {
+    background: white;
+    padding-top: 2rem;
+}
+
+.header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    margin-bottom: 4rem;
+}
+
+.titleWrapper {
+    position: relative;
+}
+
+.accentLine {
+    width: 60px;
+    height: 4px;
+    background: var(--accent-yellow);
+    margin-bottom: 1.5rem;
+}
+
+.title {
+    font-size: 3.5rem;
+    font-weight: 800;
+    line-height: 1.1;
+    color: #111827;
+}
+
+.decorBox {
+    position: relative;
+    width: 80px;
+    height: 80px;
+}
+
+.boxBlack {
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 50px;
+    height: 50px;
+    background: #111827;
+    z-index: 2;
+}
+
+.boxGreen {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 50px;
+    height: 50px;
+    background: #bef264;
+    /* Lime green */
+    z-index: 1;
+}
+
+/* Layout */
+.content {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 4rem;
+}
+
+.largeImagePlaceholder {
+    width: 100%;
+    height: 500px;
+    background: #f3f4f6;
+    border-radius: 1.5rem;
+    position: relative;
+    overflow: hidden;
+}
+
+.imageConfig {
+    object-fit: cover;
+    transition: transform 0.5s ease;
+}
+
+.largeImagePlaceholder:hover .imageConfig,
+.smallImagePlaceholder:hover .imageConfig {
+    transform: scale(1.05);
+}
+
+.rightCol {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.description {
+    font-size: 1.15rem;
+    color: var(--secondary);
+    line-height: 1.8;
+    margin-bottom: 3rem;
+}
+
+.subContent {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+}
+
+.badge {
+    position: relative;
+    width: 140px;
+    height: 140px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: transparent;
+}
+
+.badgeText {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    border: 1px solid #e5e7eb;
+    border-radius: 50%;
+    animation: rotate 20s linear infinite;
+    font-size: 0.6rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    color: var(--secondary);
+}
+
+.badgeArrow {
+    width: 60px;
+    height: 60px;
+    background: #bef264;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.5rem;
+    font-weight: bold;
+}
+
+.smallImagePlaceholder {
+    width: 280px;
+    height: 200px;
+    background: #f3f4f6;
+    border-radius: 1.5rem;
+    position: relative;
+    overflow: hidden;
+}
+
+@keyframes rotate {
+    from {
+        transform: rotate(0deg);
+    }
+
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+@media (max-width: 900px) {
+    .content {
+        grid-template-columns: 1fr;
+        gap: 2rem;
+    }
+
+    .title {
+        font-size: 2.5rem;
+    }
+
+    .subContent {
+        flex-direction: column-reverse;
+        align-items: flex-start;
+        gap: 2rem;
+    }
+
+    .largeImagePlaceholder {
+        height: 300px;
+    }
+}

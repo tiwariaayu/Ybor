@@ -1,0 +1,46 @@
+.footer {
+    padding: 4rem 0;
+    background: #f9fafb;
+    margin-top: 4rem;
+}
+
+.content {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.logo {
+    font-size: 1.5rem;
+    margin-bottom: 0.5rem;
+    font-weight: 800;
+    color: var(--primary);
+}
+
+.copy {
+    color: var(--secondary);
+    font-size: 0.95rem;
+}
+
+.social {
+    display: flex;
+    gap: 2rem;
+}
+
+.social a {
+    color: var(--secondary);
+    font-weight: 500;
+    transition: color 0.2s;
+}
+
+.social a:hover {
+    color: var(--primary);
+}
+
+@media (max-width: 600px) {
+    .content {
+        flex-direction: column;
+        gap: 2rem;
+        text-align: center;
+    }
+}

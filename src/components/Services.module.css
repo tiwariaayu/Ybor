@@ -1,0 +1,170 @@
+.services {
+    background: #ffffff;
+    padding-bottom: 2rem;
+    /* Reduced bottom padding */
+    padding-top: 1rem;
+    /* Reduced top padding */
+}
+
+.header {
+    text-align: center;
+    margin-bottom: 3rem;
+}
+
+.heading {
+    font-size: 3rem;
+    font-weight: 800;
+    line-height: 1.1;
+    margin-bottom: 1rem;
+    color: #111827;
+}
+
+.subheading {
+    max-width: 600px;
+    margin: 0 auto;
+    color: var(--secondary);
+    font-size: 1.1rem;
+}
+
+/* Bento Grid */
+.bentoGrid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    grid-auto-rows: 280px;
+    gap: 1.5rem;
+    max-width: 1100px;
+    margin: 0 auto;
+}
+
+.card {
+    border-radius: 1.5rem;
+    padding: 2rem;
+    position: relative;
+    overflow: hidden;
+    /* box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05), 0 2px 4px -1px rgba(0, 0, 0, 0.03); */
+    background: white;
+    display: flex;
+    flex-direction: column;
+    transition: all 0.5s ease;
+    border: none;
+    /* Removed border as we have full images */
+}
+
+.card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
+}
+
+.cardImage {
+    object-fit: cover;
+    z-index: 0;
+    transition: transform 0.5s ease;
+}
+
+.card:hover .cardImage {
+    transform: scale(1.1);
+}
+
+.overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    /* Gradient over image to make text readable */
+    background: linear-gradient(to top, rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0.2) 60%, rgba(0, 0, 0, 0.1));
+    z-index: 1;
+}
+
+/* Color Overrides based on type (Optional subtle tint) */
+.blueGradient .overlay {
+    background: linear-gradient(to top, rgba(30, 58, 138, 0.9), rgba(0, 0, 0, 0.1));
+}
+
+.purpleGradient .overlay {
+    background: linear-gradient(to top, rgba(88, 28, 135, 0.9), rgba(0, 0, 0, 0.1));
+}
+
+.greenGradient .overlay {
+    background: linear-gradient(to top, rgba(20, 83, 45, 0.9), rgba(0, 0, 0, 0.1));
+}
+
+.orangeGradient .overlay {
+    background: linear-gradient(to top, rgba(124, 45, 18, 0.9), rgba(0, 0, 0, 0.1));
+}
+
+
+/* Spans */
+.cardLarge {
+    grid-column: span 2;
+    grid-row: span 2;
+}
+
+.cardDefault {
+    grid-column: span 1;
+    grid-row: span 1;
+}
+
+.cardWide {
+    grid-column: span 2;
+    grid-row: span 1;
+}
+
+
+.cardContent {
+    position: relative;
+    z-index: 2;
+    /* Above overlay */
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    height: 100%;
+    color: white;
+    /* Text is now white on all cards */
+}
+
+.iconWrapper {
+    width: 50px;
+    height: 50px;
+    border-radius: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 1rem;
+    background: rgba(255, 255, 255, 0.2);
+    backdrop-filter: blur(8px);
+    border: 1px solid rgba(255, 255, 255, 0.3);
+}
+
+.icon {
+    font-size: 1.5rem;
+}
+
+.title {
+    font-size: 1.5rem;
+    font-weight: 700;
+    margin-bottom: 0.5rem;
+    color: white;
+}
+
+.desc {
+    font-size: 1rem;
+    color: rgba(255, 255, 255, 0.9);
+    line-height: 1.5;
+}
+
+/* Mobile */
+@media (max-width: 900px) {
+    .bentoGrid {
+        grid-template-columns: 1fr;
+        grid-auto-rows: auto;
+    }
+
+    .cardLarge,
+    .cardDefault,
+    .cardWide {
+        grid-column: span 1;
+        grid-row: auto;
+        min-height: 250px;
+    }
+}

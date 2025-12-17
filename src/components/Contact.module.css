@@ -1,0 +1,193 @@
+/* Modern Contact Section */
+.contact {
+    position: relative;
+    padding: 6rem 0;
+    overflow: hidden;
+    background: linear-gradient(to bottom, #ffffff, #fdf4ff 100%);
+    /* Soft fade to pastel purple/pink */
+}
+
+/* Decorative background elements */
+.contact::before {
+    content: '';
+    position: absolute;
+    top: -10%;
+    right: -5%;
+    width: 600px;
+    height: 600px;
+    background: radial-gradient(circle, var(--accent-blue), transparent 70%);
+    opacity: 0.4;
+    filter: blur(80px);
+    z-index: 0;
+    pointer-events: none;
+}
+
+.wrapper {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 5rem;
+    align-items: center;
+    position: relative;
+    z-index: 2;
+}
+
+.info {
+    padding-right: 2rem;
+}
+
+.eyebrow {
+    color: #ec4899;
+    /* Pink accent */
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    font-size: 0.85rem;
+    margin-bottom: 1rem;
+    display: inline-block;
+    background: rgba(236, 72, 153, 0.1);
+    padding: 0.5rem 1rem;
+    border-radius: 100px;
+}
+
+.heading {
+    font-size: 3.5rem;
+    font-weight: 800;
+    margin-bottom: 1.5rem;
+    line-height: 1.1;
+    color: #111827;
+}
+
+.text {
+    font-size: 1.15rem;
+    color: var(--secondary);
+    margin-bottom: 3rem;
+    line-height: 1.6;
+    max-width: 90%;
+}
+
+.details {
+    display: flex;
+    flex-direction: column;
+    gap: 1.25rem;
+}
+
+.detailCard {
+    display: flex;
+    align-items: center;
+    gap: 1.5rem;
+    padding: 1.25rem;
+    background: white;
+    border-radius: 1.25rem;
+    border: 1px solid rgba(0, 0, 0, 0.03);
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.02);
+    transition: all 0.3s ease;
+}
+
+.detailCard:hover {
+    transform: translateY(-3px) translateX(5px);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.05);
+    border-color: rgba(236, 72, 153, 0.2);
+}
+
+.detailIcon {
+    font-size: 1.5rem;
+    background: #fdf2f8;
+    /* Light pink bg */
+    width: 56px;
+    height: 56px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 1rem;
+    color: #db2777;
+}
+
+.detailCard h3 {
+    font-size: 1rem;
+    font-weight: 700;
+    margin-bottom: 0.2rem;
+    color: #111827;
+}
+
+.detailCard p {
+    font-size: 0.95rem;
+    color: var(--secondary);
+}
+
+
+/* Form Card */
+.formWrapper {
+    background: rgba(255, 255, 255, 0.7);
+    backdrop-filter: blur(20px);
+    padding: 3rem;
+    border-radius: 2.5rem;
+    border: 1px solid rgba(255, 255, 255, 0.8);
+    box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.1);
+    position: relative;
+}
+
+.form {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+}
+
+.inputGroup label {
+    display: block;
+    font-size: 0.9rem;
+    font-weight: 600;
+    margin-bottom: 0.5rem;
+    color: #374151;
+    margin-left: 0.5rem;
+}
+
+.input,
+.textarea {
+    width: 100%;
+    padding: 1.25rem 1.5rem;
+    background: white;
+    border: 1px solid #e5e7eb;
+    border-radius: 1rem;
+    color: var(--foreground);
+    font-family: inherit;
+    font-size: 1rem;
+    transition: all 0.2s;
+}
+
+.input:focus,
+.textarea:focus {
+    outline: none;
+    border-color: #ec4899;
+    box-shadow: 0 0 0 4px rgba(236, 72, 153, 0.1);
+}
+
+.submitBtn {
+    margin-top: 1rem;
+    background: #111827;
+    color: white;
+    padding: 1.25rem;
+    border-radius: 1rem;
+    font-weight: 700;
+    font-size: 1rem;
+    cursor: pointer;
+    border: none;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.75rem;
+    transition: all 0.2s;
+    box-shadow: 0 10px 20px -5px rgba(0, 0, 0, 0.2);
+}
+
+.submitBtn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 15px 30px -5px rgba(0, 0, 0, 0.3);
+    background: black;
+}
+
+@media (max-width: 900px) {
+    .wrapper {
+        grid-template-columns: 1fr;
+        gap: 4rem;
+    }
+}
