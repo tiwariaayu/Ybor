@@ -17,21 +17,21 @@ export default function Contact() {
                                 <span className={styles.detailIcon}>📧</span>
                                 <div>
                                     <h3>Chat with us</h3>
-                                    <p>yborofficial@gmail.com</p>
+                                    <p>yasfevbgnbl@gmail.com</p>
                                 </div>
                             </div>
                             <div className={styles.detailCard}>
                                 <span className={styles.detailIcon}>📱</span>
                                 <div>
                                     <h3>Call us</h3>
-                                    <p>+91 84539 24766</p>
+                                    <p>+91 84539 0000</p>
                                 </div>
                             </div>
                             <div className={styles.detailCard}>
                                 <span className={styles.detailIcon}>📍</span>
                                 <div>
                                     <h3>Visit us</h3>
-                                    <p>Nagaon, Assam, India</p>
+                                    <p> Assam, India</p>
                                 </div>
                             </div>
                         </div>

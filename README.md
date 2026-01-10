@@ -1,8 +1,1 @@
-
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+A Demo landing page for Ybor agencu  ->https://ybor.netlify.app/ 
