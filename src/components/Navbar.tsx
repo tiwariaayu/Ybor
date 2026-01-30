@@ -1,7 +1,7 @@
 "use client";
 import Link from 'next/link';
 import Image from 'next/image';
-import { useState, useEffect } from 'react';
+import { useState } from 'react';
 import { motion, useScroll, useMotionValueEvent } from 'framer-motion';
 import styles from './Navbar.module.css';
 
@@ -45,17 +45,22 @@ export default function Navbar() {
                     <span className={styles.logoText}>Ybor</span>
                 </Link>
                 <div className={styles.links}>
-                    {['Services', 'About', 'Contact'].map((item) => (
-                        <Link key={item} href={`#${item.toLowerCase()}`} className={styles.linkItem}>
-                            <span className="relative z-10">{item}</span>
-                            {/* Hover underline effect is handled via CSS or we can add motion span here */}
+                    {[
+                        { name: 'Work', href: '#solutions' },
+                        { name: 'Services', href: '#services' },
+                        { name: 'Process', href: '#process' },
+                        { name: 'Reviews', href: '#testimonials' },
+                        { name: 'Contact', href: '#contact' }
+                    ].map((item) => (
+                        <Link key={item.name} href={item.href} className={styles.linkItem}>
+                            <span className="relative z-10">{item.name}</span>
                         </Link>
                     ))}
                     <motion.button
                         whileHover={{ scale: 1.05 }}
                         whileTap={{ scale: 0.95 }}
-                        className="btn btn-primary"
-                        style={{ padding: '0.6rem 1.8rem', fontSize: '0.9rem' }}
+                        className={styles.navBtn}
+                        style={{ fontSize: '0.9rem' }}
                     >
                         Get Started
                     </motion.button>
