@@ -6,6 +6,7 @@
     padding-top: var(--nav-height);
     padding-bottom: 5rem;
     overflow: hidden;
+    background-color: black;
 }
 
 .content {
