@@ -95,6 +95,22 @@ export default function Hero() {
               color: "var(--primary)",
             }}
           >
+            <div>Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptate, unde!</div>
+            <div>Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptate, unde!</div>
+            <div>Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptate, unde!</div>
+            <div>Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptate, unde!</div>
+            <div>Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptate, unde!</div>
+            <div>Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptate, unde!</div>
+            <div>Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptate, unde!</div>
+            <div>Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptate, unde!</div>
+            <div>Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptate, unde!</div>
+            <div>Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptate, unde!</div>
+            <div>Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptate, unde!</div>
+            <div>Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptate, unde!</div>
+            <div>Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptate, unde!</div>
+            <div>Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptate, unde!</div>
+            <div>Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptate, unde!</div>
+            <div>Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptate, unde!</div>
             Our Services
           </Link>
         </motion.div>
