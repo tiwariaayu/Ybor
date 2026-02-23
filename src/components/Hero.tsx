@@ -74,7 +74,7 @@ export default function Hero() {
           Powering your business with Ybor.
         </motion.p>
         <motion.h1 variants={fadeInUp} className={styles.title}>
-          <span className="text-highlight">Ybor Digital Marketing</span> <br />
+          <span className="text-highlight">Takaka Digital Marketing</span> <br />
           Agency
         </motion.h1>
         <motion.p variants={fadeInUp} className={styles.subtitle}>
