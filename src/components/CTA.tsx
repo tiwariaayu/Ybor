@@ -23,7 +23,7 @@ export default function CTA() {
                         transition={{ delay: 0.1 }}
                         viewport={{ once: true }}
                     >
-                        Join hundreds of successful brands trusting Ybor for their digital growth.
+                        Join hundreds of successful brands trusting Jai Bajrang Bali for their digital growth.
                     </motion.p>
                     <motion.div
                         initial={{ opacity: 0, y: 20 }}

@@ -74,11 +74,11 @@ export default function Hero() {
         animate="animate"
       >
         <motion.p variants={fadeInUp} className={styles.eyebrow}>
-          Powering your business with Ybor.
+          Powering your business with Jai Bajrang Bali.
         </motion.p>
         <motion.h1 variants={fadeInUp} className={styles.title}>
-          <span className="text-highlight">Ybor Digital Marketing</span> <br />
-          Agency
+          <span className="text-highlight">Jai Bajrang Bali</span> <br />
+          Digital Marketing Agency
         </motion.h1>
         <motion.p variants={fadeInUp} className={styles.subtitle}>
           We craft digital content strategies that connect businesses with

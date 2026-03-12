@@ -8,7 +8,7 @@ export default function Footer() {
             <div className="container">
                 <div className={styles.topSection}>
                     <div className={styles.brandCol}>
-                        <h2 className={styles.logo}>Ybor.</h2>
+                        <h2 className={styles.logo}>Jai Bajrang Bali.</h2>
                         <p className={styles.description}>
                             Empowering businesses with data-driven digital marketing strategies that deliver real results.
                         </p>
@@ -52,11 +52,11 @@ export default function Footer() {
                 </div>
 
                 <div className={styles.bottomSection}>
-                    <p className={styles.copy}>&copy; {new Date().getFullYear()} Ybor Digital Marketing Services (OPC) Pvt. Ltd.</p>
+                    <p className={styles.copy}>&copy; {new Date().getFullYear()} Jai Bajrang Bali Digital Marketing Services (OPC) Pvt. Ltd.</p>
                     <div className={styles.social}>
-                        <a href="https://twitter.com/ybordigital" target="_blank" rel="noopener noreferrer" aria-label="Follow us on Twitter">Twitter</a>
-                        <a href="https://linkedin.com/company/ybordigital" target="_blank" rel="noopener noreferrer" aria-label="Follow us on LinkedIn">LinkedIn</a>
-                        <a href="https://instagram.com/ybordigital" target="_blank" rel="noopener noreferrer" aria-label="Follow us on Instagram">Instagram</a>
+                        <a href="https://twitter.com/jaibajrangbali" target="_blank" rel="noopener noreferrer" aria-label="Follow us on Twitter">Twitter</a>
+                        <a href="https://linkedin.com/company/jaibajrangbali" target="_blank" rel="noopener noreferrer" aria-label="Follow us on LinkedIn">LinkedIn</a>
+                        <a href="https://instagram.com/jaibajrangbali" target="_blank" rel="noopener noreferrer" aria-label="Follow us on Instagram">Instagram</a>
                     </div>
                 </div>
             </div>

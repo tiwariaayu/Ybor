@@ -6,13 +6,13 @@ const testimonials = [
     {
         name: "David Smith",
         role: "CEO, TechFlow",
-        text: "Ybor transformed our online presence. Their strategic approach to digital marketing doubled our leads in just 3 months.",
+        text: "Jai Bajrang Bali transformed our online presence. Their strategic approach to digital marketing doubled our leads in just 3 months.",
         image: "👨‍💻"
     },
     {
         name: "Sarah Johnson",
         role: "Marketing Director, Bloom",
-        text: "The team at Ybor is incredible. Creative, data-driven, and results-oriented. Highly recommend them!",
+        text: "The team at Jai Bajrang Bali is incredible. Creative, data-driven, and results-oriented. Highly recommend them!",
         image: "👩‍💼"
     },
     {
@@ -24,7 +24,7 @@ const testimonials = [
     {
         name: "Emily Davis",
         role: "CMO, GreenLeaf",
-        text: "A true partner in growth. Ybor's insights helped us navigate a competitive market and come out on top.",
+        text: "A true partner in growth. Jai Bajrang Bali's insights helped us navigate a competitive market and come out on top.",
         image: "🌿"
     }
 ];

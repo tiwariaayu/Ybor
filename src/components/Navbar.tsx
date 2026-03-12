@@ -46,13 +46,13 @@ export default function Navbar() {
                         >
                             <Image
                                 src="/logo.jpg"
-                                alt="Ybor Digital"
+                                alt="Jai Bajrang Bali"
                                 width={40}
                                 height={40}
                                 className={styles.logoImage}
                             />
                         </motion.div>
-                        <span className={styles.logoText}>Ybor</span>
+                        <span className={styles.logoText}>Jai Bajrang Bali</span>
                     </Link>
 
                     {/* Desktop Links */}
