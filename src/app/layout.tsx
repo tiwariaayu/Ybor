@@ -7,34 +7,34 @@ const outfit = Outfit({ subsets: ["latin"], variable: "--font-outfit" });
 
 export const metadata: Metadata = {
     title: {
-        default: "Ybor Digital Marketing Agency | Transform Your Online Presence",
-        template: "%s | Ybor Digital"
+        default: "Jai Bajrang Bali Digital Marketing Agency | Transform Your Online Presence",
+        template: "%s | Jai Bajrang Bali"
     },
-    description: "Ybor Digital is a premier marketing agency specializing in SEO, PPC, Social Media, and Web Design. Scale your business with data-driven marketing strategies.",
-    keywords: ["digital marketing agency", "SEO services", "social media marketing", "PPC management", "Ybor Digital"],
-    authors: [{ name: "Ybor Digital Team" }],
-    creator: "Ybor Digital",
-    publisher: "Ybor Digital",
+    description: "Jai Bajrang Bali is a premier marketing agency specializing in SEO, PPC, Social Media, and Web Design. Scale your business with data-driven marketing strategies.",
+    keywords: ["digital marketing agency", "SEO services", "social media marketing", "PPC management", "Jai Bajrang Bali"],
+    authors: [{ name: "Jai Bajrang Bali Team" }],
+    creator: "Jai Bajrang Bali",
+    publisher: "Jai Bajrang Bali",
     openGraph: {
         type: "website",
         locale: "en_US",
         url: "https://ybor.netlify.app/",
-        siteName: "Ybor Digital Marketing",
-        title: "Ybor Digital Marketing Agency | Transform Your Online Presence",
-        description: "Scale your business with data-driven marketing strategies from Ybor Digital.",
+        siteName: "Jai Bajrang Bali Digital Marketing",
+        title: "Jai Bajrang Bali Digital Marketing Agency | Transform Your Online Presence",
+        description: "Scale your business with data-driven marketing strategies from Jai Bajrang Bali.",
         images: [
             {
                 url: "/logo.jpg",
                 width: 1200,
                 height: 630,
-                alt: "Ybor Digital Logo",
+                alt: "Jai Bajrang Bali Logo",
             },
         ],
     },
     twitter: {
         card: "summary_large_image",
-        title: "Ybor Digital Marketing Agency",
-        description: "Scale your business with data-driven marketing strategies from Ybor Digital.",
+        title: "Jai Bajrang Bali Digital Marketing Agency",
+        description: "Scale your business with data-driven marketing strategies from Jai Bajrang Bali.",
         images: ["/logo.jpg"],
     },
     robots: {
@@ -57,7 +57,7 @@ export default function RootLayout({
                         __html: JSON.stringify({
                             "@context": "https://schema.org",
                             "@type": "ProfessionalService",
-                            "name": "Ybor Digital Marketing",
+                            "name": "Jai Bajrang Bali Digital Marketing",
                             "image": "https://ybor.netlify.app/logo.jpg",
                             "@id": "https://ybor.netlify.app/",
                             "url": "https://ybor.netlify.app/",
@@ -80,9 +80,9 @@ export default function RootLayout({
                                 "closes": "18:00"
                             },
                             "sameAs": [
-                                "https://www.facebook.com/ybordigital",
-                                "https://www.instagram.com/ybordigital",
-                                "https://www.linkedin.com/company/ybordigital"
+                                "https://www.facebook.com/jaibajrangbali",
+                                "https://www.instagram.com/jaibajrangbali",
+                                "https://www.linkedin.com/company/jaibajrangbali"
                             ]
                         })
                     }}
