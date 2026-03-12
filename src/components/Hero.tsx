@@ -44,6 +44,7 @@ export default function Hero() {
         style={{ top: "15%", left: "10%" }}
         variants={floatVariant(0)}
         animate="animate"
+        aria-hidden="true"
       >
         <div className={`${styles.iconCircle} ${styles.glass}`}>🎨</div>
       </motion.div>
@@ -52,6 +53,7 @@ export default function Hero() {
         style={{ top: "25%", right: "15%" }}
         variants={floatVariant(1)}
         animate="animate"
+        aria-hidden="true"
       >
         <div className={`${styles.iconCircle} ${styles.glass}`}>📈</div>
       </motion.div>
@@ -60,6 +62,7 @@ export default function Hero() {
         style={{ bottom: "20%", left: "15%" }}
         variants={floatVariant(2)}
         animate="animate"
+        aria-hidden="true"
       >
         <div className={`${styles.iconCircle} ${styles.glass}`}>💡</div>
       </motion.div>
@@ -93,16 +96,10 @@ export default function Hero() {
               marginLeft: "1rem",
               background: "white",
               color: "var(--primary)",
+              border: "1px solid var(--primary)",
             }}
           >
             Our Services
-            Lorem ipsum dolor sit, amet consectetur adipisicing elit. Voluptatibus quia iure iusto provident, repudiandae est vero labore quaerat similique aspernatur nam nobis soluta voluptatem molestias architecto? Corporis eveniet qui eius consequuntur officia commodi ducimus laudantium dignissimos at? Reprehenderit, voluptatum? Modi.
-            Lorem ipsum dolor sit, amet consectetur adipisicing elit. Voluptatibus quia iure iusto provident, repudiandae est vero labore quaerat similique aspernatur nam nobis soluta voluptatem molestias architecto? Corporis eveniet qui eius consequuntur officia commodi ducimus laudantium dignissimos at? Reprehenderit, voluptatum? Modi.
-            Lorem ipsum dolor sit, amet consectetur adipisicing elit. Voluptatibus quia iure iusto provident, repudiandae est vero labore quaerat similique aspernatur nam nobis soluta voluptatem molestias architecto? Corporis eveniet qui eius consequuntur officia commodi ducimus laudantium dignissimos at? Reprehenderit, voluptatum? Modi.
-            Lorem ipsum dolor sit, amet consectetur adipisicing elit. Voluptatibus quia iure iusto provident, repudiandae est vero labore quaerat similique aspernatur nam nobis soluta voluptatem molestias architecto? Corporis eveniet qui eius consequuntur officia commodi ducimus laudantium dignissimos at? Reprehenderit, voluptatum? Modi.
-            Lorem ipsum dolor sit, amet consectetur adipisicing elit. Voluptatibus quia iure iusto provident, repudiandae est vero labore quaerat similique aspernatur nam nobis soluta voluptatem molestias architecto? Corporis eveniet qui eius consequuntur officia commodi ducimus laudantium dignissimos at? Reprehenderit, voluptatum? Modi.
-            Lorem ipsum dolor sit, amet consectetur adipisicing elit. Voluptatibus quia iure iusto provident, repudiandae est vero labore quaerat similique aspernatur nam nobis soluta voluptatem molestias architecto? Corporis eveniet qui eius consequuntur officia commodi ducimus laudantium dignissimos at? Reprehenderit, voluptatum? Modi.
-            Lorem ipsum dolor sit, amet consectetur adipisicing elit. Voluptatibus quia iure iusto provident, repudiandae est vero labore quaerat similique aspernatur nam nobis soluta voluptatem molestias architecto? Corporis eveniet qui eius consequuntur officia commodi ducimus laudantium dignissimos at? Reprehenderit, voluptatum? Modi.
           </Link>
         </motion.div>
 

@@ -28,7 +28,7 @@
 }
 
 .title {
-    font-size: 4.5rem;
+    font-size: clamp(2.5rem, 8vw, 4.5rem);
     font-weight: 800;
     line-height: 1.1;
     margin-bottom: 1.5rem;
@@ -37,8 +37,8 @@
 
 .subtitle {
     font-size: 1.15rem;
-    color: white;
-    max-width: 500px;
+    color: #4b5563;
+    max-width: 600px;
     margin-bottom: 2.5rem;
     line-height: 1.6;
 }

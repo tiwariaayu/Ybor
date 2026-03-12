@@ -31,7 +31,12 @@ export default function CTA() {
                         transition={{ delay: 0.2 }}
                         viewport={{ once: true }}
                     >
-                         <Link href="#contact" className="btn btn-primary" style={{ background: 'white', color: 'black' }}>
+                         <Link 
+                            href="#contact" 
+                            className="btn btn-primary" 
+                            style={{ background: 'white', color: 'black' }}
+                            aria-label="Start Your Project"
+                        >
                             Start Your Project
                         </Link>
                     </motion.div>

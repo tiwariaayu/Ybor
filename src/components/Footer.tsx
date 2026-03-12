@@ -38,8 +38,15 @@ export default function Footer() {
                         <h3 className={styles.colTitle}>Subscribe</h3>
                         <p className={styles.newsletterText}>Get the latest marketing insights delivered to your inbox.</p>
                         <form className={styles.form} onSubmit={(e) => e.preventDefault()}>
-                            <input type="email" placeholder="Your email address" className={styles.input} />
-                            <button type="submit" className={styles.btn}>→</button>
+                            <label htmlFor="newsletter-email" className="sr-only">Email Address</label>
+                            <input 
+                                id="newsletter-email"
+                                type="email" 
+                                placeholder="Your email address" 
+                                className={styles.input} 
+                                required
+                            />
+                            <button type="submit" className={styles.btn} aria-label="Subscribe to newsletter">→</button>
                         </form>
                     </div>
                 </div>
@@ -47,9 +54,9 @@ export default function Footer() {
                 <div className={styles.bottomSection}>
                     <p className={styles.copy}>&copy; {new Date().getFullYear()} Ybor Digital Marketing Services (OPC) Pvt. Ltd.</p>
                     <div className={styles.social}>
-                        <a href="#" target="_blank" rel="noopener noreferrer">Twitter</a>
-                        <a href="#" target="_blank" rel="noopener noreferrer">LinkedIn</a>
-                        <a href="#" target="_blank" rel="noopener noreferrer">Instagram</a>
+                        <a href="https://twitter.com/ybordigital" target="_blank" rel="noopener noreferrer" aria-label="Follow us on Twitter">Twitter</a>
+                        <a href="https://linkedin.com/company/ybordigital" target="_blank" rel="noopener noreferrer" aria-label="Follow us on LinkedIn">LinkedIn</a>
+                        <a href="https://instagram.com/ybordigital" target="_blank" rel="noopener noreferrer" aria-label="Follow us on Instagram">Instagram</a>
                     </div>
                 </div>
             </div>

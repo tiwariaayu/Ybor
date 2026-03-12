@@ -42,7 +42,12 @@ export default function Testimonials() {
                     <motion.div 
                         className={styles.marqueeTrack}
                         animate={{ x: ["0%", "-50%"] }}
-                        transition={{ repeat: Infinity, ease: "linear", duration: 20 }}
+                        transition={{ 
+                            repeat: Infinity, 
+                            ease: "linear", 
+                            duration: 30 
+                        }}
+                        whileHover={{ animationPlayState: "paused" }}
                     >
                         {/* Double the array for seamless loop */}
                         {[...testimonials, ...testimonials].map((t, i) => (
