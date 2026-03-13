@@ -133,8 +133,8 @@ export default function Navbar() {
             </AnimatePresence>
 
             <LoginModal 
-                isOpen={isLoginOpen} 
-                onClose={() => setIsLoginOpen(false)} 
+                isModalVisible={isLoginOpen} 
+                onToggleVisibility={() => setIsLoginOpen(false)} 
             />
         </>
     );

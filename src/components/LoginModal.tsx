@@ -1,91 +1,147 @@
 "use client";
-import { useState } from 'react';
+import { useState, useCallback } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import styles from './LoginModal.module.css';
 
-interface LoginModalProps {
-    isOpen: boolean;
-    onClose: () => void;
+interface AuthenticationModalProps {
+    isModalVisible: boolean;
+    onToggleVisibility: () => void;
 }
 
-export default function LoginModal({ isOpen, onClose }: LoginModalProps) {
-    const [email, setEmail] = useState('');
-    const [password, setPassword] = useState('');
-    const [error, setError] = useState('');
-    const [success, setSuccess] = useState(false);
+/**
+ * AuthenticationModal provides a secure-looking entry point for user sessions.
+ * Current implementation simulates a backend verification process.
+ */
+export default function LoginModal({ isModalVisible, onToggleVisibility }: AuthenticationModalProps) {
+    const [credentialIdentifier, setCredentialIdentifier] = useState('');
+    const [accessSecret, setAccessSecret] = useState('');
+    const [authStatus, setAuthStatus] = useState<'idle' | 'authenticating' | 'authenticated' | 'unauthorized'>('idle');
+    const [validationError, setValidationError] = useState('');
 
-    const handleSubmit = (e: React.FormEvent) => {
+    const handleAuthentication = useCallback(async (e: React.FormEvent) => {
         e.preventDefault();
-        setError('');
-
-        if (email === 'tiwariayushman' && password === 'tiwariayushman') {
-            setSuccess(true);
-            setTimeout(() => {
-                onClose();
-                setSuccess(false);
-                setEmail('');
-                setPassword('');
-            }, 2000);
-        } else {
-            setError('Invalid email or password');
+        setValidationError('');
+        
+        // Basic input validation
+        const normalizedIdentifier = credentialIdentifier.trim();
+        if (normalizedIdentifier.length < 3) {
+            setValidationError('Identifier must be at least 3 characters.');
+            return;
         }
-    };
+
+        setAuthStatus('authenticating');
+
+        // Simulate network latency for a more realistic authentication flow
+        await new Promise(resolve => setTimeout(resolve, 1200));
+
+        if (normalizedIdentifier === 'tiwariayushman' && accessSecret === 'tiwariayushman') {
+            setAuthStatus('authenticated');
+            setTimeout(() => {
+                onToggleVisibility();
+                // Reset states after modal closure animation
+                setTimeout(() => {
+                    setAuthStatus('idle');
+                    setCredentialIdentifier('');
+                    setAccessSecret('');
+                }, 300);
+            }, 1800);
+        } else {
+            setAuthStatus('unauthorized');
+            setValidationError('The credentials provided do not match our records.');
+        }
+    }, [credentialIdentifier, accessSecret, onToggleVisibility]);
 
     return (
         <AnimatePresence>
-            {isOpen && (
-                <div className={styles.overlay} onClick={onClose}>
+            {isModalVisible && (
+                <div className={styles.authOverlay} onClick={onToggleVisibility}>
                     <motion.div 
-                        className={styles.modal} 
+                        className={styles.authContainer} 
                         onClick={(e) => e.stopPropagation()}
-                        initial={{ opacity: 0, scale: 0.9, y: 20 }}
+                        initial={{ opacity: 0, scale: 0.95, y: 15 }}
                         animate={{ opacity: 1, scale: 1, y: 0 }}
-                        exit={{ opacity: 0, scale: 0.9, y: 20 }}
+                        exit={{ opacity: 0, scale: 0.95, y: 15 }}
+                        transition={{ type: 'spring', damping: 20, stiffness: 300 }}
                     >
-                        <button className={styles.closeBtn} onClick={onClose}>&times;</button>
+                        <button 
+                            className={styles.dismissButton} 
+                            onClick={onToggleVisibility}
+                            aria-label="Close authentication modal"
+                        >
+                            &times;
+                        </button>
                         
-                        <div className={styles.content}>
-                            <h2 className={styles.title}>Login to Jai Bajrang Bali</h2>
-                            <p className={styles.subtitle}>Welcome back! Please enter your details.</p>
+                        <div className={styles.authContent}>
+                            <header className={styles.authHeader}>
+                                <h2 className={styles.authTitle}>Account Access</h2>
+                                <p className={styles.authSubtitle}>Secure login for Jai Bajrang Bali partners.</p>
+                            </header>
 
-                            {success ? (
+                            {authStatus === 'authenticated' ? (
                                 <motion.div 
-                                    className={styles.successMsg}
-                                    initial={{ opacity: 0 }}
-                                    animate={{ opacity: 1 }}
+                                    className={styles.authSuccessFeedback}
+                                    initial={{ opacity: 0, scale: 0.9 }}
+                                    animate={{ opacity: 1, scale: 1 }}
                                 >
-                                    Login Successful! Welcome, Tiwari Ayushman.
+                                    <span className={styles.successIcon}>✓</span>
+                                    <p>Welcome back, <strong>Tiwari Ayushman</strong>. Redirecting to your dashboard...</p>
                                 </motion.div>
                             ) : (
-                                <form className={styles.form} onSubmit={handleSubmit}>
-                                    <div className={styles.inputGroup}>
-                                        <label htmlFor="login-email">Email / Username</label>
+                                <form className={styles.authForm} onSubmit={handleAuthentication}>
+                                    <div className={styles.formField}>
+                                        <label htmlFor="auth-identifier">Email or Username</label>
                                         <input 
-                                            id="login-email"
+                                            id="auth-identifier"
                                             type="text" 
-                                            placeholder="Enter your email" 
-                                            value={email}
-                                            onChange={(e) => setEmail(e.target.value)}
+                                            autoComplete="username"
+                                            placeholder="e.g. tiwariayushman" 
+                                            value={credentialIdentifier}
+                                            onChange={(e) => setCredentialIdentifier(e.target.value)}
+                                            disabled={authStatus === 'authenticating'}
                                             required 
                                         />
                                     </div>
-                                    <div className={styles.inputGroup}>
-                                        <label htmlFor="login-password">Password</label>
+                                    <div className={styles.formField}>
+                                        <div className={styles.labelRow}>
+                                            <label htmlFor="auth-secret">Password</label>
+                                            <button type="button" className={styles.inlineAction}>Forgot?</button>
+                                        </div>
                                         <input 
-                                            id="login-password"
+                                            id="auth-secret"
                                             type="password" 
+                                            autoComplete="current-password"
                                             placeholder="••••••••" 
-                                            value={password}
-                                            onChange={(e) => setPassword(e.target.value)}
+                                            value={accessSecret}
+                                            onChange={(e) => setAccessSecret(e.target.value)}
+                                            disabled={authStatus === 'authenticating'}
                                             required 
                                         />
                                     </div>
                                     
-                                    {error && <p className={styles.errorMsg}>{error}</p>}
+                                    {validationError && (
+                                        <motion.p 
+                                            className={styles.authErrorMessage}
+                                            initial={{ opacity: 0, x: -10 }}
+                                            animate={{ opacity: 1, x: 0 }}
+                                        >
+                                            {validationError}
+                                        </motion.p>
+                                    )}
 
-                                    <button type="submit" className={styles.submitBtn}>
-                                        Login
+                                    <button 
+                                        type="submit" 
+                                        className={styles.authSubmitButton}
+                                        disabled={authStatus === 'authenticating'}
+                                    >
+                                        {authStatus === 'authenticating' ? (
+                                            <span className={styles.loader}>Authenticating...</span>
+                                        ) : 'Sign In'}
                                     </button>
+
+                                    <footer className={styles.authFooter}>
+                                        <span>New to the platform?</span>
+                                        <button type="button" className={styles.inlineAction}>Request Access</button>
+                                    </footer>
                                 </form>
                             )}
                         </div>
