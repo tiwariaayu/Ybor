@@ -4,10 +4,12 @@ import Image from 'next/image';
 import { useState } from 'react';
 import { motion, useScroll, useMotionValueEvent, AnimatePresence } from 'framer-motion';
 import styles from './Navbar.module.css';
+import LoginModal from './LoginModal';
 
 export default function Navbar() {
     const [hidden, setHidden] = useState(false);
     const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+    const [isLoginOpen, setIsLoginOpen] = useState(false);
     const { scrollY } = useScroll();
 
     useMotionValueEvent(scrollY, "change", (latest) => {
@@ -62,6 +64,12 @@ export default function Navbar() {
                                 <span className="relative z-10">{item.name}</span>
                             </Link>
                         ))}
+                        <button 
+                            className={styles.loginBtn}
+                            onClick={() => setIsLoginOpen(true)}
+                        >
+                            Login
+                        </button>
                         <motion.button
                             whileHover={{ scale: 1.05 }}
                             whileTap={{ scale: 0.95 }}
@@ -109,11 +117,25 @@ export default function Navbar() {
                                     {item.name}
                                 </Link>
                             ))}
+                            <button 
+                                className={styles.mobileLoginBtn}
+                                onClick={() => {
+                                    setIsMobileMenuOpen(false);
+                                    setIsLoginOpen(true);
+                                }}
+                            >
+                                Login
+                            </button>
                             <button className={styles.mobileNavBtn}>Get Started</button>
                         </div>
                     </motion.div>
                 )}
             </AnimatePresence>
+
+            <LoginModal 
+                isOpen={isLoginOpen} 
+                onClose={() => setIsLoginOpen(false)} 
+            />
         </>
     );
 }

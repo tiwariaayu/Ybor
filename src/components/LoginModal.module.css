@@ -1,0 +1,149 @@
+.overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.4);
+    backdrop-filter: blur(8px);
+    z-index: 1000;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 1.5rem;
+}
+
+.modal {
+    background: white;
+    width: 100%;
+    max-width: 450px;
+    border-radius: 1.5rem;
+    padding: 2.5rem;
+    position: relative;
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+    color: #111827;
+}
+
+.closeBtn {
+    position: absolute;
+    top: 1.25rem;
+    right: 1.25rem;
+    background: transparent;
+    border: none;
+    font-size: 1.5rem;
+    color: #6b7280;
+    cursor: pointer;
+    width: 32px;
+    height: 32px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    transition: all 0.2s;
+}
+
+.closeBtn:hover {
+    background: #f3f4f6;
+    color: #111827;
+}
+
+.content {
+    display: flex;
+    flex-direction: column;
+}
+
+.title {
+    font-size: 1.75rem;
+    font-weight: 800;
+    margin-bottom: 0.5rem;
+    text-align: center;
+    letter-spacing: -0.5px;
+}
+
+.subtitle {
+    color: #6b7280;
+    text-align: center;
+    margin-bottom: 2rem;
+    font-size: 0.95rem;
+}
+
+.form {
+    display: flex;
+    flex-direction: column;
+    gap: 1.25rem;
+}
+
+.inputGroup {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+}
+
+.inputGroup label {
+    font-size: 0.875rem;
+    font-weight: 600;
+    color: #374151;
+}
+
+.inputGroup input {
+    padding: 0.875rem 1rem;
+    border-radius: 0.75rem;
+    border: 1px solid #e5e7eb;
+    background: #f9fafb;
+    font-size: 1rem;
+    transition: all 0.2s;
+    outline: none;
+}
+
+.inputGroup input:focus {
+    border-color: #6366f1;
+    background: white;
+    box-shadow: 0 0 0 4px rgba(99, 102, 241, 0.1);
+}
+
+.submitBtn {
+    margin-top: 1rem;
+    background: #6366f1;
+    color: white;
+    padding: 1rem;
+    border-radius: 0.75rem;
+    font-weight: 600;
+    border: none;
+    cursor: pointer;
+    transition: all 0.2s;
+    font-size: 1rem;
+}
+
+.submitBtn:hover {
+    background: #4f46e5;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(99, 102, 241, 0.2);
+}
+
+.submitBtn:active {
+    transform: translateY(0);
+}
+
+.errorMsg {
+    color: #ef4444;
+    font-size: 0.875rem;
+    text-align: center;
+    margin-top: 0.5rem;
+    font-weight: 500;
+}
+
+.successMsg {
+    background: #ecfdf5;
+    color: #065f46;
+    padding: 1.5rem;
+    border-radius: 1rem;
+    text-align: center;
+    font-weight: 600;
+    border: 1px solid #10b981;
+}
+
+@media (max-width: 480px) {
+    .modal {
+        padding: 2rem 1.5rem;
+    }
+}

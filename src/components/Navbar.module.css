@@ -21,6 +21,23 @@
     padding: 0 1rem;
 }
 
+.loginBtn {
+    background: transparent;
+    color: var(--primary);
+    border: 1px solid #e5e7eb;
+    padding: 0.65rem 1.25rem;
+    border-radius: 100px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.2s;
+    font-size: 0.9rem;
+}
+
+.loginBtn:hover {
+    background: #f9fafb;
+    border-color: var(--primary);
+}
+
 .navBtn {
     background: #6366f1; /* Indigo-500 similar to image */
     color: white;
@@ -159,6 +176,18 @@
     font-weight: 700;
     color: var(--primary);
     text-decoration: none;
+}
+
+.mobileLoginBtn {
+    background: transparent;
+    color: var(--primary);
+    border: 1px solid #e5e7eb;
+    padding: 0.75rem 2rem;
+    border-radius: 100px;
+    font-weight: 600;
+    font-size: 1.1rem;
+    margin-top: 1rem;
+    cursor: pointer;
 }
 
 .mobileNavBtn {
