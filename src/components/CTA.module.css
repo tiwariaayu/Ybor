@@ -1,56 +1,70 @@
 .cta {
-    text-align: center;
-    color: white;
+    position: relative;
+    overflow: hidden;
 }
 
 .container {
-    background: var(--primary);
-    border-radius: 2rem;
-    padding: 5rem 2rem;
+    background: linear-gradient(135deg, var(--primary) 0%, var(--accent-purple) 100%);
+    border-radius: 4rem;
+    padding: 8rem 4rem;
+    text-align: center;
     position: relative;
     overflow: hidden;
-    box-shadow: 0 20px 40px -10px rgba(0, 0, 0, 0.3);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    box-shadow: 0 40px 100px -20px var(--primary-glow);
 }
 
 .content {
     position: relative;
     z-index: 2;
-    max-width: 600px;
+    max-width: 800px;
     margin: 0 auto;
 }
 
 .heading {
-    font-size: 3rem;
+    font-size: clamp(2.5rem, 6vw, 4.5rem);
     font-weight: 800;
-    margin-bottom: 1.5rem;
+    line-height: 1;
+    margin-bottom: 2rem;
     color: white;
+    letter-spacing: -0.04em;
 }
 
 .subheading {
     font-size: 1.25rem;
-    color: rgba(255, 255, 255, 0.8);
-    margin-bottom: 3rem;
-}
-
-/* Decorative Circles */
-.circle1, .circle2 {
-    position: absolute;
-    border-radius: 50%;
-    z-index: 1;
+    color: rgba(255, 255, 255, 0.82);
+    margin-bottom: 4rem;
+    line-height: 1.6;
+    max-width: 600px;
+    margin-left: auto;
+    margin-right: auto;
 }
 
 .circle1 {
-    width: 400px;
-    height: 400px;
-    background: radial-gradient(circle, rgba(255,255,255,0.1), transparent);
-    top: -50%;
+    position: absolute;
+    top: -20%;
     left: -10%;
+    width: 500px;
+    height: 500px;
+    background: radial-gradient(circle, rgba(255, 255, 255, 0.15) 0%, transparent 70%);
+    border-radius: 50%;
+    filter: blur(60px);
 }
 
 .circle2 {
-    width: 300px;
-    height: 300px;
-    background: radial-gradient(circle, rgba(255,255,255,0.1), transparent);
-    bottom: -40%;
-    right: -5%;
+    position: absolute;
+    bottom: -20%;
+    right: -10%;
+    width: 400px;
+    height: 400px;
+    background: radial-gradient(circle, rgba(139, 92, 246, 0.2) 0%, transparent 70%);
+    border-radius: 50%;
+    filter: blur(60px);
+}
+
+@media (max-width: 768px) {
+    .container {
+        border-radius: 2.5rem;
+        padding: 5rem 2rem;
+    }
 }

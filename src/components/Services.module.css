@@ -1,62 +1,66 @@
 .services {
     background: transparent;
-    padding-bottom: 2rem;
-    padding-top: 1rem;
 }
 
 .header {
     text-align: center;
-    margin-bottom: 3rem;
+    margin-bottom: 5rem;
 }
 
 .heading {
-    font-size: 3rem;
+    font-size: clamp(2.5rem, 5vw, 4rem);
     font-weight: 800;
     line-height: 1.1;
-    margin-bottom: 1rem;
+    margin-bottom: 1.5rem;
     color: white;
+    letter-spacing: -0.02em;
 }
 
 .subheading {
     max-width: 600px;
     margin: 0 auto;
-    color: rgba(255, 255, 255, 0.8);
-    font-size: 1.1rem;
+    color: var(--secondary);
+    font-size: 1.2rem;
+    line-height: 1.6;
 }
 
 /* Bento Grid */
 .bentoGrid {
     display: grid;
-    grid-template-columns: repeat(4, 1fr);
-    grid-auto-rows: 280px;
-    gap: 1.5rem;
-    max-width: 1100px;
+    grid-template-columns: repeat(12, 1fr);
+    grid-auto-rows: 300px;
+    gap: 2rem;
+    max-width: 1200px;
     margin: 0 auto;
 }
 
 .card {
     position: relative;
-    border-radius: 1.5rem;
+    border-radius: 2rem;
     overflow: hidden;
     height: 100%;
-    background: rgba(255, 255, 255, 0.05);
-    border: 1px solid rgba(255, 255, 255, 0.1);
-    transition: all 0.5s ease;
+    background: rgba(255, 255, 255, 0.02);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    transition: all 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
 }
 
 .card:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
+    transform: translateY(-10px);
+    border-color: rgba(99, 102, 241, 0.3);
+    box-shadow: 0 20px 40px -20px rgba(99, 102, 241, 0.3);
 }
 
 .cardImage {
     object-fit: cover;
     z-index: 0;
-    transition: transform 0.5s ease;
+    transition: transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+    opacity: 0.6;
 }
 
 .card:hover .cardImage {
     transform: scale(1.1);
+    opacity: 0.8;
 }
 
 .overlay {
@@ -65,117 +69,107 @@
     left: 0;
     width: 100%;
     height: 100%;
-    /* Gradient over image to make text readable */
-    background: linear-gradient(to top, rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0.2) 60%, rgba(0, 0, 0, 0.1));
+    background: linear-gradient(
+        to bottom,
+        rgba(5, 5, 5, 0.1) 0%,
+        rgba(5, 5, 5, 0.4) 50%,
+        rgba(5, 5, 5, 0.9) 100%
+    );
     z-index: 1;
 }
 
-/* Color Overrides based on type (Optional subtle tint) */
-.blueGradient .overlay {
-    background: linear-gradient(to top, rgba(30, 58, 138, 0.9), rgba(0, 0, 0, 0.1));
+.cardContent {
+    position: relative;
+    z-index: 2;
+    padding: 2.5rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    height: 100%;
+    color: white;
 }
 
-.purpleGradient .overlay {
-    background: linear-gradient(to top, rgba(88, 28, 135, 0.9), rgba(0, 0, 0, 0.1));
+.iconWrapper {
+    width: 48px;
+    height: 48px;
+    border-radius: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 1.5rem;
+    background: rgba(255, 255, 255, 0.05);
+    backdrop-filter: blur(8px);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    transition: all 0.3s ease;
 }
 
-.greenGradient .overlay {
-    background: linear-gradient(to top, rgba(20, 83, 45, 0.9), rgba(0, 0, 0, 0.1));
+.card:hover .iconWrapper {
+    background: var(--primary);
+    border-color: var(--primary);
+    transform: rotate(-5deg) scale(1.1);
 }
 
-.orangeGradient .overlay {
-    background: linear-gradient(to top, rgba(124, 45, 18, 0.9), rgba(0, 0, 0, 0.1));
+.icon {
+    font-size: 1.25rem;
 }
 
+.title {
+    font-size: 1.75rem;
+    font-weight: 700;
+    margin-bottom: 0.75rem;
+    color: white;
+    letter-spacing: -0.01em;
+}
+
+.desc {
+    font-size: 1rem;
+    color: var(--secondary);
+    line-height: 1.6;
+    transition: color 0.3s ease;
+}
+
+.card:hover .desc {
+    color: white;
+}
+
+/* Grid Spanning */
+.cardLarge {
+    grid-column: span 8;
+}
+
+.cardDefault {
+    grid-column: span 4;
+}
+
+.cardWide {
+    grid-column: span 12;
+    grid-auto-rows: 250px;
+}
 
 @media (max-width: 1024px) {
     .bentoGrid {
         grid-template-columns: repeat(2, 1fr);
-        grid-auto-rows: 240px;
+        grid-auto-rows: auto;
     }
     
-    .cardLarge {
+    .cardLarge, .cardDefault, .cardWide {
         grid-column: span 2;
-        grid-row: span 2;
+        min-height: 350px;
     }
 }
 
 @media (max-width: 640px) {
     .bentoGrid {
         grid-template-columns: 1fr;
-        grid-auto-rows: 300px;
+        gap: 1.5rem;
     }
     
-    .cardLarge, .cardWide {
+    .cardLarge, .cardDefault, .cardWide {
         grid-column: span 1;
-        grid-row: span 1;
+        min-height: 300px;
     }
     
-    .heading {
-        font-size: 2.25rem;
+    .cardContent {
+        padding: 1.5rem;
     }
-}
-
-.cardWide {
-    grid-column: span 2;
-    grid-row: span 1;
-}
-
-
-.cardContent {
-    position: relative;
-    z-index: 2;
-    /* Above overlay */
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    height: 100%;
-    color: white;
-    /* Text is now white on all cards */
-}
-
-.iconWrapper {
-    width: 50px;
-    height: 50px;
-    border-radius: 12px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    margin-bottom: 1rem;
-    background: rgba(255, 255, 255, 0.1);
-    backdrop-filter: blur(8px);
-    border: 1px solid rgba(255, 255, 255, 0.2);
-}
-
-.icon {
-    font-size: 1.5rem;
-}
-
-.title {
-    font-size: 1.5rem;
-    font-weight: 700;
-    margin-bottom: 0.5rem;
-    color: white;
-}
-
-.desc {
-    font-size: 1rem;
-    color: rgba(255, 255, 255, 0.9);
-    line-height: 1.5;
-}
-
-/* Mobile */
-@media (max-width: 900px) {
-    .bentoGrid {
-        grid-template-columns: 1fr;
-        grid-auto-rows: auto;
-    }
-
-    .cardLarge,
-    .cardDefault,
-    .cardWide {
-        grid-column: span 1;
-        grid-row: auto;
-        min-height: 250px;
-    }
-}
+}

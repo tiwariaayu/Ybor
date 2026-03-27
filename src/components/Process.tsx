@@ -30,8 +30,8 @@ export default function Process() {
         <section id="process" className={`section-padding ${styles.process}`}>
             <div className="container">
                 <div className={styles.header}>
-                    <h2 className={styles.heading}>Our Process</h2>
-                    <p className={styles.subheading}>A proven approach to digital success.</p>
+                    <h2 className={styles.heading}>Our <span className="text-gradient-primary">Process</span></h2>
+                    <p className={styles.subheading}>A systematic approach to engineering your digital growth.</p>
                 </div>
 
                 <div className={styles.stepsGrid}>

@@ -19,14 +19,14 @@ const floatVariant = (delay: number): Variants => ({
 });
 
 const fadeInUp: Variants = {
-    initial: { opacity: 0, y: 60 },
-    animate: { opacity: 1, y: 0, transition: { duration: 0.6, ease: "easeOut" } }
+    initial: { opacity: 0, y: 30 },
+    animate: { opacity: 1, y: 0, transition: { duration: 0.8, ease: [0.16, 1, 0.3, 1] } }
 };
 
 const staggerContainer: Variants = {
     animate: {
         transition: {
-            staggerChildren: 0.1
+            staggerChildren: 0.15
         }
     }
 };
@@ -34,11 +34,7 @@ const staggerContainer: Variants = {
 export default function Hero() {
   return (
     <section className={styles.hero}>
-      {/* Background Gradients */}
-      <div className={styles.bgGradient1}></div>
-      <div className={styles.bgGradient2}></div>
-
-      {/* Floating Animated Icons with Glassmorphism */}
+      {/* Floating Animated Icons */}
       <motion.div
         className={styles.floatIcon}
         style={{ top: "15%", left: "10%" }}
@@ -46,7 +42,7 @@ export default function Hero() {
         animate="animate"
         aria-hidden="true"
       >
-        <div className={`${styles.iconCircle} ${styles.glass}`}>🎨</div>
+        <div className={`${styles.iconCircle} glass`}>🎨</div>
       </motion.div>
       <motion.div
         className={styles.floatIcon}
@@ -55,7 +51,7 @@ export default function Hero() {
         animate="animate"
         aria-hidden="true"
       >
-        <div className={`${styles.iconCircle} ${styles.glass}`}>📈</div>
+        <div className={`${styles.iconCircle} glass`}>📈</div>
       </motion.div>
       <motion.div
         className={styles.floatIcon}
@@ -64,51 +60,43 @@ export default function Hero() {
         animate="animate"
         aria-hidden="true"
       >
-        <div className={`${styles.iconCircle} ${styles.glass}`}>💡</div>
+        <div className={`${styles.iconCircle} glass`}>💡</div>
       </motion.div>
 
       <motion.div
         className={`container ${styles.content}`}
         variants={staggerContainer}
         initial="initial"
-        animate="animate"
+        whileInView="animate"
+        viewport={{ once: true }}
       >
         <motion.p variants={fadeInUp} className={styles.eyebrow}>
-          Powering your business with Ybor.
+          Redefining Digital Excellence
         </motion.p>
         <motion.h1 variants={fadeInUp} className={styles.title}>
-          <span className="text-highlight">Ybor Digital Marketing</span> <br />
-          Agency
+          Elevate Your <span className="text-gradient-primary">Brand</span> <br />
+          Experience
         </motion.h1>
         <motion.p variants={fadeInUp} className={styles.subtitle}>
           We craft digital content strategies that connect businesses with
           customers, driving growth and engagement through data-driven
-          creativity.
+          creativity and premium design.
         </motion.p>
         <motion.div variants={fadeInUp} className={styles.actions}>
           <Link href="#contact" className="btn btn-primary">
-            Get Started
+            Start Your Journey
           </Link>
-          <Link
-            href="#services"
-            className="btn btn-secondary"
-            style={{
-              marginLeft: "1rem",
-              background: "white",
-              color: "var(--primary)",
-              border: "1px solid var(--primary)",
-            }}
-          >
-            Our Services
+          <Link href="#services" className="btn btn-secondary">
+            Explore Services
           </Link>
         </motion.div>
 
-        {/* Decorative Grid with Real Images */}
+        {/* Decorative Grid */}
         <motion.div variants={fadeInUp} className={styles.imageGrid}>
           <div className={styles.gridItem}>
             <Image
               src="/images/hero_portrait_woman_1765964013088.png"
-              alt="Happy client"
+              alt="Brand growth"
               fill
               className={styles.gridImage}
             />
@@ -117,21 +105,20 @@ export default function Hero() {
             <div className={styles.centerImageWrapper}>
               <Image
                 src="/images/hero_team_working_1765964329903.png"
-                alt="Team working"
+                alt="Strategy session"
                 fill
                 className={styles.gridImage}
               />
             </div>
-            <div className={`${styles.centerBadge} ${styles.glass}`}>
-              Ybor
-              <br />
-              Agency
+            <div className={styles.centerBadge}>
+              EST. <br />
+              2024
             </div>
           </div>
           <div className={styles.gridItem}>
             <Image
               src="/images/hero_portrait_man_1765964153979.png"
-              alt="Happy client"
+              alt="Digital impact"
               fill
               className={styles.gridImage}
             />
@@ -142,22 +129,23 @@ export default function Hero() {
         <motion.div variants={fadeInUp} className={styles.stats}>
           <div className={styles.statItem}>
             <strong>4.8K</strong>
-            <span>Jobs Completed</span>
+            <span>Active Users</span>
           </div>
           <div className={styles.statItem}>
             <strong>15+</strong>
-            <span>Industry Experience</span>
+            <span>Core Services</span>
           </div>
           <div className={styles.statItem}>
             <strong>3.6K+</strong>
-            <span>Global Clients</span>
+            <span>Partnerships</span>
           </div>
           <div className={styles.statItem}>
             <strong>130+</strong>
-            <span>Awards Won</span>
+            <span>Design Awards</span>
           </div>
         </motion.div>
       </motion.div>
     </section>
   );
 }
+

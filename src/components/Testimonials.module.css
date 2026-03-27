@@ -1,18 +1,17 @@
 .testimonials {
-    overflow: hidden;
-    background: #f9fafb;
-    position: relative;
+    background: transparent;
 }
 
 .header {
     text-align: center;
-    margin-bottom: 4rem;
+    margin-bottom: 5rem;
 }
 
 .heading {
-    font-size: 2.5rem;
-    font-weight: 700;
-    margin-bottom: 1rem;
+    font-size: clamp(2.5rem, 5vw, 4rem);
+    font-weight: 800;
+    margin-bottom: 1.5rem;
+    letter-spacing: -0.02em;
 }
 
 .subheading {
@@ -21,56 +20,84 @@
 }
 
 .marqueeWrapper {
-    width: 100%;
+    width: 100vw;
+    position: relative;
+    left: 50%;
+    right: 50%;
+    margin-left: -50vw;
+    margin-right: -50vw;
     overflow: hidden;
-    display: flex;
-    mask-image: linear-gradient(to right, transparent, black 10%, black 90%, transparent);
+    padding: 2rem 0;
 }
 
 .marqueeTrack {
     display: flex;
     gap: 2rem;
-    padding: 1rem 0;
     width: max-content;
 }
 
 .card {
-    background: white;
-    padding: 2rem;
-    border-radius: 1.5rem;
-    min-width: 350px;
-    max-width: 350px;
-    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
-    display: flex;
-    flex-direction: column;
+    width: 400px;
+    padding: 3rem;
+    background: rgba(255, 255, 255, 0.02);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    border-radius: 2rem;
+    backdrop-filter: blur(10px);
+    transition: all 0.4s ease;
+}
+
+.card:hover {
+    background: rgba(255, 255, 255, 0.05);
+    border-color: rgba(99, 102, 241, 0.3);
+    transform: translateY(-5px);
 }
 
 .cardHeader {
     display: flex;
     align-items: center;
-    gap: 1rem;
-    margin-bottom: 1rem;
+    gap: 1.25rem;
+    margin-bottom: 2rem;
 }
 
 .avatar {
-    width: 48px;
-    height: 48px;
-    background: #f3f4f6;
+    width: 60px;
+    height: 60px;
+    background: rgba(99, 102, 241, 0.1);
     border-radius: 50%;
     display: flex;
     align-items: center;
     justify-content: center;
     font-size: 1.5rem;
+    border: 1px solid rgba(99, 102, 241, 0.2);
+    box-shadow: 0 0 15px rgba(99, 102, 241, 0.1);
 }
 
 .name {
+    font-size: 1.25rem;
     font-weight: 700;
-    font-size: 1rem;
+    color: white;
 }
 
 .role {
-    font-size: 0.875rem;
+    font-size: 0.85rem;
     color: var(--secondary);
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    margin-top: 0.25rem;
+}
+
+.text {
+    font-size: 1.1rem;
+    color: var(--secondary);
+    line-height: 1.7;
+    font-style: italic;
+}
+
+@media (max-width: 768px) {
+    .card {
+        width: 320px;
+        padding: 2rem;
+    }
 }
 
 @media (max-width: 640px) {
