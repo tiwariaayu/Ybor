@@ -38,20 +38,6 @@ const services = [
     }
 ];
 
-const containerVars = {
-    hidden: { opacity: 0 },
-    show: {
-        opacity: 1,
-        transition: {
-            staggerChildren: 0.1
-        }
-    }
-};
-
-const itemVars = {
-    hidden: { opacity: 0, y: 20 },
-    show: { opacity: 1, y: 0 }
-};
 
 export default function Services() {
     return (
@@ -75,42 +61,42 @@ export default function Services() {
                     </motion.p>
                 </div>
 
-                <motion.div
-                    className={styles.bentoGrid}
-                    variants={containerVars}
-                    initial="hidden"
-                    whileInView="show"
-                    viewport={{ once: true }}
-                >
+                <div className="masonry-grid">
                     {services.map((service, index) => (
                         <motion.div
                             key={index}
-                            className={`${styles.card} ${service.className} ${service.color}`}
-                            variants={itemVars}
-                            whileHover={{ y: -5 }}
+                            className={`masonry-item ${styles.card} ${service.color}`}
+                            initial={{ opacity: 0, y: 30 }}
+                            whileInView={{ opacity: 1, y: 0 }}
+                            transition={{ delay: index * 0.1 }}
+                            viewport={{ once: true }}
                         >
-                            {/* Background Image */}
-                            <Image
-                                src={service.image}
-                                alt={service.title}
-                                fill
-                                className={styles.cardImage}
-                                sizes="(max-width: 768px) 100vw, 50vw"
-                            />
-                            <div className={styles.overlay}></div>
-
-                            <div className={styles.cardContent}>
-                                <div className={styles.iconWrapper}>
-                                    <span className={styles.icon}>{service.icon}</span>
+                            <div className={styles.cardInner}>
+                                <div className={styles.imageWrapper}>
+                                    <Image
+                                        src={service.image}
+                                        alt={service.title}
+                                        fill
+                                        className={styles.cardImage}
+                                        sizes="(max-width: 768px) 100vw, 33vw"
+                                    />
+                                    <div className={styles.overlay}></div>
+                                    <div className={styles.iconWrapper}>
+                                        <span className={styles.icon}>{service.icon}</span>
+                                    </div>
                                 </div>
-                                <div>
+                                
+                                <div className={styles.cardContent}>
                                     <h3 className={styles.title}>{service.title}</h3>
                                     <p className={styles.desc}>{service.description}</p>
+                                    <div className={styles.cardFooter}>
+                                        <button className={styles.learnMore}>Learn more ↗</button>
+                                    </div>
                                 </div>
                             </div>
                         </motion.div>
                     ))}
-                </motion.div>
+                </div>
             </div>
         </section>
     );

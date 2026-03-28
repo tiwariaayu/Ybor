@@ -34,35 +34,34 @@ export default function Testimonials() {
         <section id="testimonials" className={`section-padding ${styles.testimonials}`}>
             <div className="container">
                 <div className={styles.header}>
-                    <h2 className={styles.heading}>What Our Clients Say</h2>
-                    <p className={styles.subheading}>Trust is built on results.</p>
+                    <h2 className={styles.heading}>Inspired by Results</h2>
+                    <p className={styles.subheading}>See what our clients are saying about the Ybor experience.</p>
                 </div>
 
-                <div className={styles.marqueeWrapper}>
-                    <motion.div 
-                        className={styles.marqueeTrack}
-                        animate={{ x: ["0%", "-50%"] }}
-                        transition={{ 
-                            repeat: Infinity, 
-                            ease: "linear", 
-                            duration: 30 
-                        }}
-                        whileHover={{ animationPlayState: "paused" }}
-                    >
-                        {/* Double the array for seamless loop */}
-                        {[...testimonials, ...testimonials].map((t, i) => (
-                            <div key={i} className={styles.card}>
-                                <div className={styles.cardHeader}>
-                                    <div className={styles.avatar}>{t.image}</div>
-                                    <div>
-                                        <h3 className={styles.name}>{t.name}</h3>
-                                        <p className={styles.role}>{t.role}</p>
-                                    </div>
+                <div className="masonry-grid">
+                    {testimonials.map((t, i) => (
+                        <motion.div 
+                            key={i} 
+                            className={`masonry-item ${styles.card}`}
+                            initial={{ opacity: 0, scale: 0.9 }}
+                            whileInView={{ opacity: 1, scale: 1 }}
+                            transition={{ delay: i * 0.1 }}
+                            viewport={{ once: true }}
+                        >
+                            <div className={styles.cardHeader}>
+                                <div className={styles.avatar}>{t.image}</div>
+                                <div>
+                                    <h3 className={styles.name}>{t.name}</h3>
+                                    <p className={styles.role}>{t.role}</p>
                                 </div>
-                                <p className={styles.text}>&quot;{t.text}&quot;</p>
                             </div>
-                        ))}
-                    </motion.div>
+                            <p className={styles.text}>&quot;{t.text}&quot;</p>
+                            <div className={styles.cardFooter}>
+                                <div className={styles.stars}>★★★★★</div>
+                                <div className={styles.date}>Verified Client</div>
+                            </div>
+                        </motion.div>
+                    ))}
                 </div>
             </div>
         </section>
