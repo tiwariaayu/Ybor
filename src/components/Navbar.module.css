@@ -1,22 +1,40 @@
 .nav {
     position: fixed;
-    top: 1rem;
+    top: 1.5rem;
     left: 0;
     right: 0;
     margin: 0 auto;
-    width: 95%;
-    max-width: var(--max-width);
+    width: 90%;
+    max-width: 1200px;
     height: 70px;
     display: flex;
     align-items: center;
-    z-index: 50;
-    
-    background: rgba(10, 10, 10, 0.4);
+    z-index: 1000;
+    background: rgba(15, 23, 42, 0.6);
     backdrop-filter: blur(20px);
     -webkit-backdrop-filter: blur(20px);
-    border: 1px solid rgba(255, 255, 255, 0.08);
+    border: 1px solid rgba(255, 255, 255, 0.1);
     border-radius: 100px;
-    box-shadow: 0 10px 40px -10px rgba(0, 0, 0, 0.5);
+    box-shadow: 0 20px 40px -10px rgba(0, 0, 0, 0.3);
+    padding: 0 1.5rem;
+}
+
+.navBtn {
+    background: var(--foreground);
+    color: var(--background);
+    padding: 0.6rem 1.5rem;
+    border-radius: 100px;
+    font-weight: 700;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    border: none;
+    cursor: pointer;
+    font-size: 0.85rem;
+    letter-spacing: -0.01em;
+}
+
+.navBtn:hover {
+    transform: scale(1.05);
+    background: var(--primary);
     color: white;
 }
 
@@ -37,18 +55,14 @@
 .logoImage {
     border-radius: 50%;
     object-fit: cover;
-    border: 2px solid rgba(255, 255, 255, 0.1);
 }
 
 .logoText {
     font-family: var(--font-heading);
-    font-weight: 800;
-    font-size: 1.4rem;
-    background: linear-gradient(135deg, #fff 0%, #6366f1 100%);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    background-clip: text;
-    letter-spacing: -0.5px;
+    font-weight: 700;
+    font-size: 1.25rem;
+    color: white;
+    letter-spacing: -1px;
 }
 
 .links {
@@ -60,47 +74,37 @@
 .linkItem {
     font-weight: 500;
     font-size: 0.9rem;
-    color: var(--secondary);
-    position: relative;
-    padding: 0.5rem 0;
+    color: rgba(255, 255, 255, 0.7);
     transition: all 0.3s ease;
 }
 
 .linkItem:hover {
-    color: white;
+    color: #ffffff;
 }
 
-.navBtn {
-    background: var(--primary);
-    color: white;
-    padding: 0.6rem 1.5rem;
-    border-radius: 100px;
-    font-weight: 600;
-    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-    border: none;
-    cursor: pointer;
-    box-shadow: 0 0 15px var(--primary-glow);
-    font-family: var(--font-body);
-}
-
-.navBtn:hover {
-    transform: scale(1.05);
-    box-shadow: 0 0 25px var(--primary-glow);
-    background: #4f46e5;
+@media (max-width: 1024px) {
+    .links {
+        display: none;
+    }
 }
 
 .mobileToggle {
-    display: none;
     background: transparent;
     border: none;
     cursor: pointer;
     padding: 0.5rem;
-    z-index: 100;
+    display: none;
+}
+
+@media (max-width: 1024px) {
+    .mobileToggle {
+        display: block;
+    }
 }
 
 .hamburger {
     width: 24px;
-    height: 18px;
+    height: 14px;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
@@ -109,14 +113,13 @@
 .hamburger span {
     display: block;
     width: 100%;
-    height: 2px;
+    height: 1.5px;
     background-color: white;
     transition: all 0.3s ease;
-    border-radius: 2px;
 }
 
 .hamburger.active span:nth-child(1) {
-    transform: translateY(8px) rotate(45deg);
+    transform: translateY(6px) rotate(45deg);
 }
 
 .hamburger.active span:nth-child(2) {
@@ -124,17 +127,17 @@
 }
 
 .hamburger.active span:nth-child(3) {
-    transform: translateY(-8px) rotate(-45deg);
+    transform: translateY(-6px) rotate(-45deg);
 }
 
 .mobileMenu {
     position: fixed;
     top: 0;
-    right: 0;
+    left: 0;
     width: 100%;
     height: 100vh;
-    background: #050505;
-    z-index: 40;
+    background: #0f172a;
+    z-index: 999;
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -144,22 +147,16 @@
 .mobileMenuContent {
     display: flex;
     flex-direction: column;
-    gap: 2.5rem;
+    gap: 2rem;
     align-items: center;
 }
 
 .mobileLink {
     font-size: 2.5rem;
     font-weight: 700;
-    color: var(--secondary);
-    text-decoration: none;
-    font-family: var(--font-heading);
-    transition: all 0.3s ease;
-}
-
-.mobileLink:hover {
     color: white;
-    transform: scale(1.1);
+    font-family: var(--font-heading);
+    letter-spacing: -1px;
 }
 
 .mobileNavBtn {
@@ -167,19 +164,8 @@
     color: white;
     padding: 1rem 3rem;
     border-radius: 100px;
-    font-weight: 600;
+    font-weight: 700;
     border: none;
     font-size: 1.25rem;
     margin-top: 1rem;
-    box-shadow: 0 0 20px var(--primary-glow);
-}
-
-@media (max-width: 768px) {
-    .links {
-        display: none;
-    }
-
-    .mobileToggle {
-        display: block;
-    }
 }

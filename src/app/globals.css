@@ -1,18 +1,21 @@
 :root {
-  --background: #050505;
-  --foreground: #ffffff;
-  --primary: #6366f1;
-  --primary-glow: rgba(99, 102, 241, 0.4);
-  --secondary: #94a3b8;
-  --accent-purple: #8b5cf6;
-  --accent-blue: #0ea5e9;
-  --accent-pink: #d946ef;
-  --card-bg: rgba(255, 255, 255, 0.03);
-  --card-border: rgba(255, 255, 255, 0.08);
-  --font-heading: "Outfit", sans-serif;
-  --font-body: "Inter", sans-serif;
+  --background: #0f172a; /* Deep night blue */
+  --foreground: #f8fafc;
+  --primary: #c084fc; /* Vibrant purple */
+  --primary-glow: rgba(192, 132, 252, 0.2);
+  --secondary: #64748b;
+  --accent-yellow: #fbbf24;
+  --accent-purple: #a855f7;
+  --accent-blue: #38bdf8;
+  --accent-pink: #f472b6;
+  --card-bg: rgba(30, 41, 59, 0.7); /* Translucent cards */
+  --card-border: rgba(255, 255, 255, 0.1);
+  --font-heading: var(--font-outfit), sans-serif;
+  --font-body: var(--font-inter), sans-serif;
   --max-width: 1400px;
   --nav-height: 80px;
+  --radius-xl: 2rem; /* Pinterest large radius */
+  --radius-lg: 1.5rem;
 }
 
 * {
@@ -26,25 +29,23 @@ body {
   max-width: 100vw;
   overflow-x: hidden;
   background-color: var(--background);
+  background-image: 
+    radial-gradient(at 0% 0%, hsla(253, 16%, 7%, 1) 0, transparent 50%),
+    radial-gradient(at 50% 0%, hsla(225, 39%, 30%, 1) 0, transparent 50%),
+    radial-gradient(at 100% 0%, hsla(339, 49%, 30%, 1) 0, transparent 50%);
+  background-size: 400% 400%;
+  background-attachment: fixed;
+  animation: gradientBG 15s ease infinite;
   color: var(--foreground);
   font-family: var(--font-body);
   scroll-behavior: smooth;
   -webkit-font-smoothing: antialiased;
 }
 
-body::before {
-  content: "";
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background: 
-    radial-gradient(circle at 0% 0%, rgba(99, 102, 241, 0.15) 0%, transparent 50%),
-    radial-gradient(circle at 100% 0%, rgba(139, 92, 246, 0.1) 0%, transparent 50%),
-    radial-gradient(circle at 50% 100%, rgba(14, 165, 233, 0.1) 0%, transparent 50%);
-  z-index: -1;
-  pointer-events: none;
+@keyframes gradientBG {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
 }
 
 a {
@@ -56,13 +57,6 @@ a {
   max-width: var(--max-width);
   margin: 0 auto;
   padding: 0 2rem;
-}
-
-/* Typography Overrides */
-h1, h2, h3, h4, h5, h6 {
-  font-family: var(--font-heading);
-  font-weight: 700;
-  letter-spacing: -0.02em;
 }
 
 /* Utilities */
@@ -79,42 +73,33 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 .text-gradient {
-  background: linear-gradient(135deg, #fff 0%, #94a3b8 100%);
+  background: linear-gradient(135deg, #fff 0%, #cbd5e1 100%);
   -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
   background-clip: text;
+  -webkit-text-fill-color: transparent;
 }
 
-.text-gradient-primary {
-  background: linear-gradient(135deg, var(--primary) 0%, var(--accent-purple) 100%);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  background-clip: text;
-}
-
-.glass {
-  background: rgba(255, 255, 255, 0.03);
+.card {
+  background: var(--card-bg);
   backdrop-filter: blur(12px);
   -webkit-backdrop-filter: blur(12px);
-  border: 1px solid rgba(255, 255, 255, 0.08);
-  border-radius: 1.5rem;
-}
-
-.glass-hover {
+  border: 1px solid var(--card-border);
+  border-radius: var(--radius-lg);
+  padding: 2rem;
   transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  height: fit-content;
+  break-inside: avoid;
+  margin-bottom: 2rem;
 }
 
-.glass-hover:hover {
-  background: rgba(255, 255, 255, 0.05);
-  border-color: rgba(255, 255, 255, 0.15);
-  transform: translateY(-4px);
-  box-shadow: 0 20px 40px -20px rgba(0, 0, 0, 0.5);
+.card:hover {
+  transform: scale(1.02) translateY(-5px);
+  border-color: var(--primary);
+  box-shadow: 0 20px 40px -10px rgba(0, 0, 0, 0.4);
 }
 
 .btn {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
+  display: inline-block;
   padding: 1rem 2.5rem;
   border-radius: 100px;
   font-weight: 600;
@@ -122,43 +107,65 @@ h1, h2, h3, h4, h5, h6 {
   cursor: pointer;
   border: none;
   font-size: 1rem;
-  gap: 0.5rem;
+  text-align: center;
 }
 
 .btn-primary {
-  background: var(--primary);
-  color: white;
-  box-shadow: 0 0 20px var(--primary-glow);
+  background: var(--foreground);
+  color: var(--background);
 }
 
 .btn-primary:hover {
-  transform: scale(1.02);
-  box-shadow: 0 0 30px var(--primary-glow);
-  background: #4f46e5;
+  transform: translateY(-2px);
+  box-shadow: 0 10px 20px -5px rgba(255, 255, 255, 0.2);
 }
 
-.btn-secondary {
-  background: rgba(255, 255, 255, 0.05);
-  color: white;
-  border: 1px solid rgba(255, 255, 255, 0.1);
-  backdrop-filter: blur(5px);
+.btn-outline {
+  background: transparent;
+  color: var(--foreground);
+  border: 1px solid var(--foreground);
 }
 
-.btn-secondary:hover {
-  background: rgba(255, 255, 255, 0.1);
-  border-color: rgba(255, 255, 255, 0.2);
+.btn-outline:hover {
+  background: var(--foreground);
+  color: var(--background);
 }
 
 .section-padding {
   padding: 10rem 0;
 }
 
-@media (max-width: 768px) {
-  .section-padding {
-    padding: 6rem 0;
-  }
-  
-  .container {
-    padding: 0 1.5rem;
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--font-heading);
+  letter-spacing: -0.02em;
+}
+
+/* Pinterest Masonry Layout */
+.masonry-grid {
+  columns: 1;
+  column-gap: 2rem;
+}
+
+@media (min-width: 640px) {
+  .masonry-grid {
+    columns: 2;
   }
 }
+
+@media (min-width: 1024px) {
+  .masonry-grid {
+    columns: 3;
+  }
+}
+
+.fade-in {
+  opacity: 0;
+  animation: fadeIn 0.8s ease-out forwards;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+

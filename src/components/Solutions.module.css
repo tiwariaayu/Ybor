@@ -3,175 +3,116 @@
 }
 
 .header {
+    text-align: center;
+    margin-bottom: 5rem;
     display: flex;
-    justify-content: space-between;
-    align-items: flex-end;
-    margin-bottom: 6rem;
-    gap: 4rem;
-}
-
-.titleWrapper {
-    flex: 1;
-}
-
-.accentLine {
-    width: 80px;
-    height: 4px;
-    background: var(--primary);
-    margin-bottom: 2rem;
-    border-radius: 100px;
-    box-shadow: 0 0 20px var(--primary-glow);
-}
-
-.title {
-    font-size: clamp(2.5rem, 6vw, 4.5rem);
-    font-weight: 800;
-    line-height: 1.1;
-    color: white;
-    letter-spacing: -0.03em;
-}
-
-.description {
-    font-size: 1.25rem;
-    color: var(--secondary);
-    line-height: 1.7;
-    flex: 1;
-    max-width: 500px;
-}
-
-/* Layout */
-.content {
-    display: grid;
-    grid-template-columns: 1.2fr 0.8fr;
-    gap: 4rem;
+    flex-direction: column;
     align-items: center;
 }
 
-.leftCol {
-    position: relative;
+.titleTag {
+    font-size: 0.85rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    color: var(--primary);
+    margin-bottom: 1.5rem;
 }
 
-.largeImagePlaceholder {
-    width: 100%;
-    height: 600px;
-    border-radius: 2.5rem;
-    position: relative;
+.heading {
+    font-size: clamp(2.5rem, 5vw, 4rem);
+    font-weight: 800;
+    line-height: 1.1;
+    letter-spacing: -0.03em;
+    color: white;
+}
+
+.portfolioCard {
+    padding: 0 !important;
     overflow: hidden;
-    border: 1px solid rgba(255, 255, 255, 0.1);
-    box-shadow: 0 40px 80px -20px rgba(0, 0, 0, 0.6);
+    position: relative;
+    border-radius: var(--radius-lg);
+    cursor: pointer;
+    margin-bottom: 2rem;
+    border: 1px solid rgba(255, 255, 255, 0.05);
 }
 
-.imageConfig {
+.imageWrapper {
+    position: relative;
+    width: 100%;
+    aspect-ratio: 1;
+    background: #1e293b;
+    overflow: hidden;
+}
+
+.tall .imageWrapper {
+    aspect-ratio: 3/4;
+}
+
+.image {
     object-fit: cover;
     transition: transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
-.largeImagePlaceholder:hover .imageConfig {
-    transform: scale(1.05);
+.portfolioCard:hover .image {
+    transform: scale(1.1);
 }
 
-.rightCol {
-    display: flex;
-    flex-direction: column;
-    gap: 4rem;
-}
-
-.subContent {
-    display: flex;
-    flex-direction: column;
-    gap: 3rem;
-}
-
-.badge {
-    position: relative;
-    width: 180px;
-    height: 180px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-}
-
-.badgeText {
+.overlay {
     position: absolute;
-    width: 100%;
-    height: 100%;
-    border: 1px solid rgba(255, 255, 255, 0.1);
-    border-radius: 50%;
-    animation: rotate 20s linear infinite;
-    font-size: 0.7rem;
+    inset: 0;
+    background: linear-gradient(to top, rgba(0,0,0,0.8) 0%, transparent 60%);
+    display: flex;
+    align-items: flex-end;
+    justify-content: space-between;
+    padding: 2rem;
+    opacity: 0;
+    transition: opacity 0.4s ease;
+}
+
+.portfolioCard:hover .overlay {
+    opacity: 1;
+}
+
+.category {
+    font-size: 0.8rem;
     font-weight: 700;
     text-transform: uppercase;
-    letter-spacing: 3px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    text-align: center;
-    color: var(--secondary);
+    color: var(--primary);
+    display: block;
+    margin-bottom: 0.5rem;
 }
 
-.badgeArrow {
-    width: 70px;
-    height: 70px;
-    background: var(--primary);
+.itemTitle {
+    font-size: 1.5rem;
+    font-weight: 700;
     color: white;
+}
+
+.arrow {
+    width: 40px;
+    height: 40px;
+    background: white;
+    color: black;
     border-radius: 50%;
     display: flex;
     align-items: center;
     justify-content: center;
-    font-size: 2rem;
-    box-shadow: 0 0 30px var(--primary-glow);
-    transition: transform 0.3s ease;
-}
-
-.badge:hover .badgeArrow {
-    transform: scale(1.1) rotate(45deg);
-}
-
-.smallImagePlaceholder {
-    width: 100%;
-    height: 300px;
-    border-radius: 2rem;
-    position: relative;
-    overflow: hidden;
-    border: 1px solid rgba(255, 255, 255, 0.1);
-    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4);
-}
-
-@keyframes rotate {
-    from { transform: rotate(0deg); }
-    to { transform: rotate(360deg); }
-}
-
-@media (max-width: 1024px) {
-    .content {
-        grid-template-columns: 1fr;
-        gap: 4rem;
-    }
-    
-    .header {
-        flex-direction: column;
-        align-items: flex-start;
-        gap: 2rem;
-    }
-    
-    .description {
-        max-width: 100%;
-    }
+    font-size: 1.25rem;
+    font-weight: 700;
 }
 
 @media (max-width: 768px) {
-    .largeImagePlaceholder {
-        height: 400px;
+    .heading {
+        font-size: 2.5rem;
     }
     
-    .badge {
-        width: 150px;
-        height: 150px;
+    .overlay {
+        opacity: 1;
+        padding: 1.5rem;
     }
     
-    .badgeArrow {
-        width: 60px;
-        height: 60px;
-        font-size: 1.5rem;
+    .itemTitle {
+        font-size: 1.25rem;
     }
-}
+}

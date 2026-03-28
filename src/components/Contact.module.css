@@ -1,215 +1,145 @@
 .contact {
-    position: relative;
-    padding: 10rem 0;
-    overflow: hidden;
+    background: transparent;
 }
 
 .wrapper {
     display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 8rem;
-    align-items: center;
-    position: relative;
-    z-index: 2;
+    grid-template-columns: 1fr 1.2fr;
+    gap: 4rem;
+    padding: 4rem !important;
 }
 
-.info {
-    padding-right: 2rem;
-}
-
-.eyebrow {
-    color: var(--primary);
+.titleTag {
+    font-size: 0.85rem;
     font-weight: 700;
     text-transform: uppercase;
-    letter-spacing: 0.2em;
-    font-size: 0.8rem;
-    margin-bottom: 2rem;
-    display: inline-block;
-    background: rgba(99, 102, 241, 0.1);
-    padding: 0.6rem 1.2rem;
-    border-radius: 100px;
-    border: 1px solid rgba(99, 102, 241, 0.2);
+    letter-spacing: 0.1em;
+    color: var(--primary);
+    margin-bottom: 1.5rem;
 }
 
 .heading {
-    font-size: clamp(3rem, 6vw, 4.5rem);
+    font-size: clamp(2rem, 4vw, 3.5rem);
     font-weight: 800;
-    margin-bottom: 2rem;
-    line-height: 1;
+    line-height: 1.1;
+    letter-spacing: -0.03em;
     color: white;
+    margin-bottom: 2rem;
 }
 
 .text {
-    font-size: 1.25rem;
-    color: var(--secondary);
-    margin-bottom: 4rem;
-    line-height: 1.7;
-    max-width: 90%;
+    font-size: 1.1rem;
+    color: rgba(255, 255, 255, 0.6);
+    line-height: 1.6;
+    margin-bottom: 3rem;
+    max-width: 400px;
 }
 
 .details {
     display: flex;
     flex-direction: column;
-    gap: 1.5rem;
+    gap: 2rem;
 }
 
 .detailCard {
     display: flex;
     align-items: center;
-    gap: 1.5rem;
-    padding: 1.5rem;
-    background: rgba(255, 255, 255, 0.02);
-    border-radius: 1.5rem;
-    border: 1px solid rgba(255, 255, 255, 0.08);
-    transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
-}
-
-.detailCard:hover {
-    transform: translateX(10px);
-    background: rgba(255, 255, 255, 0.05);
-    border-color: rgba(99, 102, 241, 0.3);
+    gap: 1.25rem;
 }
 
 .detailIcon {
-    font-size: 1.5rem;
-    background: rgba(99, 102, 241, 0.1);
-    width: 60px;
-    height: 60px;
+    width: 45px;
+    height: 45px;
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 50%;
     display: flex;
     align-items: center;
     justify-content: center;
-    border-radius: 1rem;
-    color: var(--primary);
-    border: 1px solid rgba(99, 102, 241, 0.1);
+    font-size: 1.25rem;
 }
 
 .detailCard h3 {
-    font-size: 1rem;
-    font-weight: 700;
-    margin-bottom: 0.4rem;
-    color: white;
-    text-transform: uppercase;
-    letter-spacing: 0.05em;
-    opacity: 0.6;
+    font-size: 0.9rem;
+    color: rgba(255, 255, 255, 0.5);
+    font-weight: 500;
+    margin-bottom: 0.25rem;
 }
 
 .detailCard p {
-    font-size: 1.1rem;
+    font-size: 1rem;
     color: white;
-    font-weight: 500;
+    font-weight: 600;
 }
 
-
-/* Form Card */
-.formWrapper {
-    background: rgba(255, 255, 255, 0.03);
-    backdrop-filter: blur(20px);
-    padding: 4rem;
-    border-radius: 3rem;
-    border: 1px solid rgba(255, 255, 255, 0.08);
-    box-shadow: 0 40px 100px -20px rgba(0, 0, 0, 0.5);
-    position: relative;
+.formCol {
+    display: flex;
+    flex-direction: column;
 }
 
 .form {
     display: flex;
     flex-direction: column;
-    gap: 2rem;
+    gap: 1.5rem;
 }
 
-.inputGroup label {
-    display: block;
-    font-size: 0.9rem;
-    font-weight: 600;
-    margin-bottom: 0.75rem;
-    color: var(--secondary);
-    margin-left: 0.5rem;
-    text-transform: uppercase;
-    letter-spacing: 0.05em;
+.inputRow {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1.5rem;
 }
 
-.input,
-.textarea {
+.inputGroup {
+    display: flex;
+    flex-direction: column;
+}
+
+.input, .textarea {
     width: 100%;
-    padding: 1.25rem 1.75rem;
-    background: rgba(255, 255, 255, 0.03);
+    background: rgba(255, 255, 255, 0.05);
     border: 1px solid rgba(255, 255, 255, 0.1);
-    border-radius: 1.25rem;
+    border-radius: 1rem;
+    padding: 1rem 1.5rem;
     color: white;
     font-family: inherit;
     font-size: 1rem;
     transition: all 0.3s ease;
 }
 
-.input:focus,
-.textarea:focus {
+.input:focus, .textarea:focus {
     outline: none;
     border-color: var(--primary);
-    background: rgba(255, 255, 255, 0.05);
-    box-shadow: 0 0 20px var(--primary-glow);
+    background: rgba(255, 255, 255, 0.1);
 }
 
-.submitBtn {
-    margin-top: 1rem;
-    background: var(--primary);
-    color: white;
-    padding: 1.25rem;
-    border-radius: 1.25rem;
-    font-weight: 700;
-    font-size: 1.1rem;
-    cursor: pointer;
-    border: none;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    gap: 0.75rem;
-    transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
-    box-shadow: 0 0 20px var(--primary-glow);
-}
-
-.submitBtn:hover {
-    transform: scale(1.02);
-    box-shadow: 0 0 35px var(--primary-glow);
-    background: #4f46e5;
-}
-
-.submitBtn:disabled {
-    opacity: 0.5;
-    cursor: not-allowed;
-    transform: none;
+.textarea {
+    resize: none;
 }
 
 .successMsg {
-    margin-top: 1.5rem;
-    padding: 1.25rem;
     background: rgba(16, 185, 129, 0.1);
     color: #10b981;
-    border-radius: 1rem;
-    font-size: 1rem;
+    padding: 1rem;
+    border-radius: 0.75rem;
     text-align: center;
-    border: 1px solid rgba(16, 185, 129, 0.2);
+    font-weight: 600;
+    margin-top: 1rem;
 }
 
-@media (max-width: 992px) {
+@media (max-width: 1024px) {
     .wrapper {
         grid-template-columns: 1fr;
-        gap: 6rem;
-    }
-    
-    .info {
-        padding-right: 0;
-        text-align: center;
+        gap: 3rem;
+        padding: 3rem 2rem !important;
     }
     
     .text {
-        max-width: 100%;
+        max-width: none;
     }
-    
-    .details {
-        align-items: center;
-    }
-    
-    .formWrapper {
-        padding: 3rem 2rem;
+}
+
+@media (max-width: 640px) {
+    .inputRow {
+        grid-template-columns: 1fr;
     }
 }

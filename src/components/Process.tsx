@@ -1,6 +1,6 @@
 "use client";
 import styles from './Process.module.css';
-import { motion } from 'framer-motion';
+import { motion, Variants } from 'framer-motion';
 
 const steps = [
     {
@@ -25,38 +25,53 @@ const steps = [
     }
 ];
 
+const containerVars: Variants = {
+    hidden: { opacity: 0 },
+    show: {
+        opacity: 1,
+        transition: {
+            staggerChildren: 0.2
+        }
+    }
+};
+
+const itemVars: Variants = {
+    hidden: { opacity: 0, x: -20 },
+    show: { opacity: 1, x: 0, transition: { duration: 0.6, ease: "easeOut" } }
+};
+
 export default function Process() {
     return (
         <section id="process" className={`section-padding ${styles.process}`}>
             <div className="container">
                 <div className={styles.header}>
-                    <h2 className={styles.heading}>Our <span className="text-gradient-primary">Process</span></h2>
-                    <p className={styles.subheading}>A systematic approach to engineering your digital growth.</p>
+                    <div className={styles.titleTag}>How we work</div>
+                    <h2 className={styles.heading}>The Path to Success.</h2>
                 </div>
 
-                <div className={styles.stepsGrid}>
+                <motion.div 
+                    className={styles.stepsContainer}
+                    variants={containerVars}
+                    initial="hidden"
+                    whileInView="show"
+                    viewport={{ once: true }}
+                >
                     {steps.map((step, index) => (
                         <motion.div 
                             key={index}
-                            className={styles.stepCard}
-                            initial={{ opacity: 0, y: 20 }}
-                            whileInView={{ opacity: 1, y: 0 }}
-                            transition={{ delay: index * 0.1 }}
-                            viewport={{ once: true }}
+                            className={`card ${styles.stepCard}`}
+                            variants={itemVars}
                         >
-                            <div className={styles.circle}>
-                                <svg width="200" height="200" viewBox="0 0 200 200" className={styles.circleSvg}>
-                                    <circle cx="100" cy="100" r="90" fill="none" stroke="#e5e7eb" strokeWidth="2" />
-                                    <circle cx="100" cy="100" r="90" fill="none" stroke="var(--primary)" strokeWidth="2" strokeDasharray="565" strokeDashoffset="565" className={styles.animatedCircle} />
-                                </svg>
-                                <span className={styles.number}>{step.number}</span>
+                            <span className={styles.number}>{step.number}</span>
+                            <div className={styles.stepContent}>
+                                <h3 className={styles.stepTitle}>{step.title}</h3>
+                                <p className={styles.stepDesc}>{step.description}</p>
                             </div>
-                            <h3 className={styles.stepTitle}>{step.title}</h3>
-                            <p className={styles.stepDesc}>{step.description}</p>
                         </motion.div>
                     ))}
-                </div>
+                </motion.div>
             </div>
         </section>
     );
 }
+
