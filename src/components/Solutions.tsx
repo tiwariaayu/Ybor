@@ -1,93 +1,75 @@
-"use client";
 import Image from "next/image";
-import { motion, Variants } from "framer-motion";
+import { motion } from "framer-motion";
 import styles from "./Solutions.module.css";
 
-const portfolioItems = [
-    {
-        title: "Brand Transformation",
-        category: "Creative Strategy",
-        image: "/images/solutions_team_meeting_1765963663297.png",
-        tall: true
-    },
-    {
-        title: "Analytics Dashboard",
-        category: "Data & Insights",
-        image: "/images/solutions_analytics_dashboard_1765963792409.png",
-        tall: false
-    },
-    {
-        title: "Growth Marketing",
-        category: "Paid Media",
-        image: "/images/hero_portrait_woman_1765964013088.png",
-        tall: false
-    },
-    {
-        title: "Web Experience",
-        category: "Development",
-        image: "/images/hero_team_working_1765964329903.png",
-        tall: true
-    }
-];
-
-const containerVars: Variants = {
-    hidden: { opacity: 0 },
-    show: {
-        opacity: 1,
-        transition: {
-            staggerChildren: 0.1
-        }
-    }
-};
-
-const itemVars: Variants = {
-    hidden: { opacity: 0, y: 20 },
-    show: { opacity: 1, y: 0, transition: { duration: 0.6, ease: "easeOut" } }
-};
-
 export default function Solutions() {
-    return (
-        <section id="solutions" className={`section-padding ${styles.solutions}`}>
-            <div className="container">
-                <div className={styles.header}>
-                    <div className={styles.titleTag}>Portfolio</div>
-                    <h2 className={styles.heading}>Selected Projects.</h2>
-                </div>
+  return (
+    <section id="solutions" className={`section-padding ${styles.solutions}`}>
+      <div className="container">
+        {/* Header Section */}
+        <div className={styles.header}>
+          <div className={styles.titleWrapper}>
+            <div className={styles.accentLine}></div>
+            <h2 className={styles.title}>
+              Engineering <span className="text-gradient-primary">Solutions</span> <br />
+              for the Digital Era
+            </h2>
+          </div>
+          <p className={styles.description}>
+            We solve complex business challenges with innovative digital
+            strategies. From performance marketing to technical SEO, we build
+            the foundation for your sustainable growth.
+          </p>
+        </div>
 
-                <motion.div 
-                    className="masonry-grid"
-                    variants={containerVars}
-                    initial="hidden"
-                    whileInView="show"
-                    viewport={{ once: true }}
-                >
-                    {portfolioItems.map((item, index) => (
-                        <motion.div 
-                            key={index} 
-                            className={`card ${styles.portfolioCard} ${item.tall ? styles.tall : ''}`}
-                            variants={itemVars}
-                        >
-                            <div className={styles.imageWrapper}>
-                                <Image
-                                    src={item.image}
-                                    alt={item.title}
-                                    fill
-                                    className={styles.image}
-                                />
-                                <div className={styles.overlay}>
-                                    <div className={styles.content}>
-                                        <span className={styles.category}>{item.category}</span>
-                                        <h3 className={styles.itemTitle}>{item.title}</h3>
-                                    </div>
-                                    <div className={styles.arrow}>↗</div>
-                                </div>
-                            </div>
-                        </motion.div>
-                    ))}
-                </motion.div>
+        {/* Content Layout */}
+        <div className={styles.content}>
+          {/* Left Column (Large Image) */}
+          <motion.div
+            className={styles.leftCol}
+            initial={{ opacity: 0, x: -30 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            transition={{ duration: 0.8 }}
+            viewport={{ once: true }}
+          >
+            <div className={styles.largeImagePlaceholder}>
+              <Image
+                src="/images/solutions_team_meeting_1765963663297.png"
+                alt="Strategy session"
+                fill
+                className={styles.imageConfig}
+              />
             </div>
-        </section>
-    );
+          </motion.div>
+
+          {/* Right Column */}
+          <motion.div
+            className={styles.rightCol}
+            initial={{ opacity: 0, x: 30 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            transition={{ duration: 0.8 }}
+            viewport={{ once: true }}
+          >
+            <div className={styles.subContent}>
+              <div className={styles.badge}>
+                <div className={styles.badgeText}>
+                  2024 • PREMIUM DIGITAL SOLUTIONS •
+                </div>
+                <div className={styles.badgeArrow}>↗</div>
+              </div>
+
+              <div className={styles.smallImagePlaceholder}>
+                <Image
+                  src="/images/solutions_analytics_dashboard_1765963792409.png"
+                  alt="Analytics Dashboard"
+                  fill
+                  className={styles.imageConfig}
+                />
+              </div>
+            </div>
+          </motion.div>
+        </div>
+      </div>
+    </section>
+  );
 }
-
-

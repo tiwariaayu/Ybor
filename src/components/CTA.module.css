@@ -1,41 +1,70 @@
 .cta {
-    background: transparent;
+    position: relative;
+    overflow: hidden;
 }
 
-.ctaCard {
+.container {
+    background: linear-gradient(135deg, var(--primary) 0%, var(--accent-purple) 100%);
+    border-radius: 4rem;
+    padding: 8rem 4rem;
     text-align: center;
-    padding: 6rem 2rem !important;
-    background: linear-gradient(135deg, rgba(30, 41, 59, 0.8) 0%, rgba(15, 23, 42, 0.9) 100%);
-    border: 1px solid rgba(255, 255, 255, 0.1) !important;
+    position: relative;
+    overflow: hidden;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    box-shadow: 0 40px 100px -20px var(--primary-glow);
+}
+
+.content {
+    position: relative;
+    z-index: 2;
+    max-width: 800px;
+    margin: 0 auto;
 }
 
 .heading {
     font-size: clamp(2.5rem, 6vw, 4.5rem);
     font-weight: 800;
-    line-height: 1.1;
+    line-height: 1;
     margin-bottom: 2rem;
+    color: white;
     letter-spacing: -0.04em;
 }
 
 .subheading {
     font-size: 1.25rem;
-    color: rgba(255, 255, 255, 0.7);
-    max-width: 600px;
-    margin: 0 auto 3.5rem;
+    color: rgba(255, 255, 255, 0.82);
+    margin-bottom: 4rem;
     line-height: 1.6;
+    max-width: 600px;
+    margin-left: auto;
+    margin-right: auto;
 }
 
-.actions {
-    display: flex;
-    gap: 1.5rem;
-    justify-content: center;
+.circle1 {
+    position: absolute;
+    top: -20%;
+    left: -10%;
+    width: 500px;
+    height: 500px;
+    background: radial-gradient(circle, rgba(255, 255, 255, 0.15) 0%, transparent 70%);
+    border-radius: 50%;
+    filter: blur(60px);
+}
+
+.circle2 {
+    position: absolute;
+    bottom: -20%;
+    right: -10%;
+    width: 400px;
+    height: 400px;
+    background: radial-gradient(circle, rgba(139, 92, 246, 0.2) 0%, transparent 70%);
+    border-radius: 50%;
+    filter: blur(60px);
 }
 
 @media (max-width: 768px) {
-    .actions {
-        flex-direction: column;
-        width: 100%;
-        max-width: 300px;
-        margin: 0 auto;
+    .container {
+        border-radius: 2.5rem;
+        padding: 5rem 2rem;
     }
 }

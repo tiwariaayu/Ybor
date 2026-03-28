@@ -6,29 +6,45 @@ import { motion } from 'framer-motion';
 export default function CTA() {
     return (
         <section className={`section-padding ${styles.cta}`}>
-            <div className="container">
-                <motion.div 
-                    className={`card ${styles.ctaCard}`}
-                    initial={{ opacity: 0, scale: 0.95 }}
-                    whileInView={{ opacity: 1, scale: 1 }}
-                    viewport={{ once: true }}
-                    transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
-                >
-                    <div className={styles.content}>
-                        <h2 className={styles.heading}>Ready to transform <br /> <span className="text-gradient">your digital presence?</span></h2>
-                        <p className={styles.subheading}>Join hundreds of successful businesses scaling with Ybor&apos;s data-driven strategies.</p>
-                        <div className={styles.actions}>
-                            <Link href="#contact" className="btn btn-primary">
-                                Get Started Now
-                            </Link>
-                            <Link href="#solutions" className="btn btn-outline">
-                                View Portfolio
-                            </Link>
-                        </div>
-                    </div>
-                </motion.div>
+            <div className={`container ${styles.container}`}>
+                <div className={styles.content}>
+                    <motion.h2 
+                        className={styles.heading}
+                        initial={{ opacity: 0, y: 20 }}
+                        whileInView={{ opacity: 1, y: 0 }}
+                        viewport={{ once: true }}
+                    >
+                        Ready to scale your business?
+                    </motion.h2>
+                    <motion.p 
+                        className={styles.subheading}
+                        initial={{ opacity: 0, y: 20 }}
+                        whileInView={{ opacity: 1, y: 0 }}
+                        transition={{ delay: 0.1 }}
+                        viewport={{ once: true }}
+                    >
+                        Join hundreds of successful brands trusting Ybor for their digital growth.
+                    </motion.p>
+                    <motion.div
+                        initial={{ opacity: 0, y: 20 }}
+                        whileInView={{ opacity: 1, y: 0 }}
+                        transition={{ delay: 0.2 }}
+                        viewport={{ once: true }}
+                    >
+                         <Link 
+                            href="#contact" 
+                            className="btn btn-primary" 
+                            style={{ background: 'white', color: 'black' }}
+                            aria-label="Start Your Project"
+                        >
+                            Start Your Project
+                        </Link>
+                    </motion.div>
+                </div>
+                {/* Decorative Elements */}
+                <div className={styles.circle1}></div>
+                <div className={styles.circle2}></div>
             </div>
         </section>
     );
 }
-
