@@ -32,12 +32,12 @@
     font-weight: 800;
     line-height: 1.1;
     margin-bottom: 1.5rem;
-    color: #111827;
+    color: var(--foreground);
 }
 
 .subtitle {
     font-size: 1.15rem;
-    color: #4b5563;
+    color: #94a3b8;
     max-width: 600px;
     margin-bottom: 2.5rem;
     line-height: 1.6;
@@ -74,11 +74,11 @@
 
 /* Glassmorphism */
 .glass {
-    background: rgba(255, 255, 255, 0.7);
-    backdrop-filter: blur(12px);
-    -webkit-backdrop-filter: blur(12px);
-    border: 1px solid rgba(255, 255, 255, 0.5);
-    box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.1);
+    background: rgba(30, 41, 59, 0.4);
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.5);
 }
 
 /* Floating Icons */
@@ -96,8 +96,9 @@
     align-items: center;
     justify-content: center;
     font-size: 1.5rem;
-    background: white;
-    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+    background: #1e293b;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
 }
 
 
@@ -184,7 +185,7 @@
 .statItem strong {
     font-size: 2rem;
     font-weight: 800;
-    color: var(--primary);
+    color: var(--foreground);
 }
 
 .statItem span {
