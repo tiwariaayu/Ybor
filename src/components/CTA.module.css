@@ -1,38 +1,41 @@
 .cta {
-    text-align: center;
-    color: white;
+    background: transparent;
+    padding: 6rem 0;
 }
 
 .container {
-    background: var(--primary);
-    border-radius: 2rem;
-    padding: 5rem 2rem;
+    background: var(--card-bg);
+    border-radius: var(--radius-xl);
+    padding: 6rem 3rem;
+    text-align: center;
     position: relative;
     overflow: hidden;
-    box-shadow: 0 20px 40px -10px rgba(0, 0, 0, 0.3);
+    border: 1px solid var(--card-border);
 }
 
 .content {
     position: relative;
     z-index: 2;
-    max-width: 600px;
+    max-width: 800px;
     margin: 0 auto;
 }
 
 .heading {
-    font-size: 3rem;
+    font-size: clamp(2.5rem, 6vw, 4rem);
     font-weight: 800;
-    margin-bottom: 1.5rem;
+    margin-bottom: 2rem;
     color: white;
+    letter-spacing: -0.04em;
+    line-height: 1;
 }
 
 .subheading {
     font-size: 1.25rem;
-    color: rgba(255, 255, 255, 0.8);
+    color: rgba(255, 255, 255, 0.6);
     margin-bottom: 3rem;
+    line-height: 1.5;
 }
 
-/* Decorative Circles */
 .circle1, .circle2 {
     position: absolute;
     border-radius: 50%;
@@ -42,15 +45,15 @@
 .circle1 {
     width: 400px;
     height: 400px;
-    background: radial-gradient(circle, rgba(255,255,255,0.1), transparent);
-    top: -50%;
-    left: -10%;
+    background: radial-gradient(circle, var(--primary-glow), transparent 70%);
+    top: -200px;
+    right: -200px;
 }
 
 .circle2 {
     width: 300px;
     height: 300px;
-    background: radial-gradient(circle, rgba(255,255,255,0.1), transparent);
-    bottom: -40%;
-    right: -5%;
+    background: radial-gradient(circle, rgba(255,255,255,0.05), transparent 70%);
+    bottom: -150px;
+    left: -100px;
 }
